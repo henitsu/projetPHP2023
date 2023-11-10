@@ -14,4 +14,6 @@ Gardez à l'esprit que l'application devra être pratique à utiliser et accessi
 - VALIDATION DU PROF : **OUI**
 - Création de la base de données
 
-## Partie 2 : (Compléter après réalisation complète de la partie 1)
+## Partie 2 : Gestion des usagers et des médecins
+- Création des pages de l'affichage, l'ajout, la modification, et la suppression des usagers
+- Reprendre les mêmes pages pour la gestion des médecins
