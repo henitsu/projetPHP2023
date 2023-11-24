@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Page</title>
-    <link rel="stylesheet" href="/CSS/index.css" >
-</head>
     <title>Gestion d'un cabinet médical</title>
+    <link rel="stylesheet" href="/CSS/index.css">
+</head>
+<body>
 
     <div id="page">
 
@@ -15,7 +15,7 @@
             <form>
                 <label>Identifiant</label>
                 <br>
-                <input type="text" placeholder = "identifiant"><br><br>
+                <input type="text" placeholder="identifiant"><br><br>
                 <label>Mot de passe</label><br>
                 <input type="password"><br>
                 <a href="#" id="mdp">Mot de passe oublié</a><br> <br>
@@ -29,5 +29,5 @@
         </div>
     </div>
 
-    
+</body>
 </html>
