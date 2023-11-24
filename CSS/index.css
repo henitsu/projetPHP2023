@@ -1,6 +1,13 @@
 #auth{
+    margin-left:10%;
     margin-right: 90%;
     text-align:left;
+}
+
+h1{
+    margin-left:-10%;
+    width: 250px;
+    text-align: center;
 }
 
 #mdp {
@@ -16,3 +23,19 @@ input{
     height :30px;
 }
 
+input[type="text"]::placeholder {
+    text-align:left;
+}
+
+input[type="password"]::placeholder {
+    text-align:left;
+}
+
+#page {
+    display: flex;
+    align-items: left;
+    margin-right: 65%;
+}
+#partieDroite{
+    vertical-align: middle;
+}
