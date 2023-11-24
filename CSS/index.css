@@ -1,8 +1,18 @@
-#mdp {
-    font-size: 15px;
-}
-
 #auth{
     margin-right: 90%;
-    text-align:right;
+    text-align:left;
 }
+
+#mdp {
+    font-size: 15px;
+    text-align: end;
+}
+
+input{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border-width: 0;
+    width:200px;
+    height :30px;
+}
+
