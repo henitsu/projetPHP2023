@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Gestion d'un cabinet médical</title>
-    <link rel="stylesheet" href="\CSS\index.css">
+    <link rel="stylesheet" href="/CSS/index.css">
 </head>
 <body>
 
