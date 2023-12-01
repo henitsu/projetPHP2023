@@ -14,3 +14,9 @@ header a{
 header a:hover{
     color: #D2DEEA;
 }
+
+
+li{
+    display: inline;
+    margin: 0 20px 0 20px;
+}

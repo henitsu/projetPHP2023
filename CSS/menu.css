@@ -19,11 +19,6 @@ a:hover{
     color: #fff;
 }
 
-li{
-    display: inline;
-    margin: 0 20px 0 20px;
-}
-
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
