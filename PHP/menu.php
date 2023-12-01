@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/menu.css">
 </head>
 <body>
-    <?php include '/HTML/header.html'; ?>
+    <?php include('../HTML/header.html'); ?>
     <main>
         <h1>Bienvenue, <?php ?></h1>
         <div class="grid">
