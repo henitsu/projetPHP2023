@@ -11,6 +11,10 @@ header a{
     text-decoration: none;
 }
 
+header a:hover{
+    color: #D2DEEA;
+}
+
 .box{
     background-color: #D2DEEA;
     border-radius: 10px;
