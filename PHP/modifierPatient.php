@@ -21,14 +21,14 @@
 			$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {
-				$nom = $_GET['Nom'];
-				$prenom = $_GET['Prenom'];
-				$adresse = $_GET['Adresse'];
-				$dateNaissance = $_GET['DateNaissance'];
-				$lieuNaissance = $_GET['LieuNaissance'];
-				$numSecu = $_GET['NumSecu'];
+				$nom = $_GET['nom'];
+				$prenom = $_GET['prenom'];
+				$adresse = $_GET['adresse'];
+				$dateNaissance = $_GET['dateNaissance'];
+				$lieuNaissance = $_GET['lieuNaissance'];
+				$numSecu = $_GET['numSecu'];
 
-				$sql = "SELECT * FROM patientele WHERE Nom = :Nom AND Prenom = :Prenom AND Adresse = :Adresse AND DateNaissance = :DateNaissance AND LieuNaissance = :LieuNaissance AND NumSecu = :NumSecu";
+				$sql = "SELECT * FROM usager WHERE Nom = :Nom AND Prenom = :Prenom AND Adresse = :Adresse AND DateNaissance = :DateNaissance AND LieuNaissance = :LieuNaissance AND NumSecu = :NumSecu";
 				$stmt = $dbco->prepare($sql);
 				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
 				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
