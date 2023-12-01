@@ -21,55 +21,55 @@
 			$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {
-				$nom = $_GET['nom'];
-				$prenom = $_GET['prenom'];
-				$adresse = $_GET['adresse'];
-				$dateNaissance = $_GET['dateNaissance'];
-				$lieuNaissance = $_GET['lieuNaissance'];
+				$nom = $_GET['Nom'];
+				$prenom = $_GET['Prenom'];
+				$adresse = $_GET['Adresse'];
+				$dateNaissance = $_GET['DateNaissance'];
+				$lieuNaissance = $_GET['LieuNaissance'];
 				$numSecu = $_GET['NumSecu'];
 
-				$sql = "SELECT * FROM carnet_adresse WHERE nom = :nom AND prenom = :prenom AND adresse = :adresse AND codepostal = :codepostal AND ville = :ville AND tel = :tel";
+				$sql = "SELECT * FROM patientele WHERE Nom = :Nom AND Prenom = :Prenom AND Adresse = :Adresse AND DateNaissance = :DateNaissance AND LieuNaissance = :LieuNaissance AND NumSecu = :NumSecu";
 				$stmt = $dbco->prepare($sql);
-				$stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
-				$stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
-				$stmt->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-				$stmt->bindParam(':dateNaissance', $dateNaissance, PDO::PARAM_STR);
-				$stmt->bindParam(':lieuNaissance', $lieuNaissance, PDO::PARAM_STR);
-				$stmt->bindParam(':numSecu', $numSecu, PDO::PARAM_STR);
+				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
+				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
+				$stmt->bindParam(':Adresse', $adresse, PDO::PARAM_STR);
+				$stmt->bindParam(':DateNaissance', $dateNaissance, PDO::PARAM_STR);
+				$stmt->bindParam(':LieuNaissance', $lieuNaissance, PDO::PARAM_STR);
+				$stmt->bindParam(':NumSecu', $numSecu, PDO::PARAM_STR);
 				$stmt->execute();
 				$usager = $stmt->fetch(PDO::FETCH_ASSOC);
-				$id = $usager['ID_Usager'];
+				$id = $usager['idusager'];
 
 				?>
-				<form action="modification.php?ID_Usager=<?php echo $id; ?>" method="post">
-					<label for="nom">Nom :</label>
-					<input type="text" id="nom" name="nom" value="<?php echo $usager['nom']; ?>" required><br>
+				<form action="modifier.php?idusager=<?php echo $id; ?>" method="post">
+					<label for="Nom">Nom :</label>
+					<input type="text" id="nom" name="Nom" value="<?php echo $usager['Nom']; ?>" required><br>
 
 					<label for="prenom">Prénom :</label>
-					<input type="text" id="prenom" name="prenom" value="<?php echo $usager['prenom']; ?>" required><br>
+					<input type="text" id="prenom" name="Prenom" value="<?php echo $usager['Prenom']; ?>" required><br>
 
 					<label for="adresse">Adresse :</label>
-					<input type="text" id="adresse" name="adresse" value="<?php echo $usager['adresse']; ?>" required><br>
+					<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
 
 					<label for="codepostal">Date naissance :</label>
-					<input type="text" id="dateNaissance" name="dateNaissance" value="<?php echo $usager['dateNaissance']; ?>" required><br>
+					<input type="text" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
 
 					<label for="ville">Lieu naissance :</label>
-					<input type="text" id="lieuNaissance" name="lieuNaissance" value="<?php echo $usager['lieuNaissance']; ?>" required><br>
+					<input type="text" id="lieuNaissance" name="LieuNaissance" value="<?php echo $usager['LieuNaissance']; ?>" required><br>
 
 					<label for="tel">Numéro de sécurité sociale :</label>
-					<input type="text" id="numSecu" name="numSecu" value="<?php echo $usager['NumSecu']; ?>" required><br>
+					<input type="text" id="numSecu" name="NumSecu" value="<?php echo $usager['NumSecu']; ?>" required><br>
 
 					<input type="submit" value="Modifier l'usager">
 				</form>
 				<?php
 			} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$id = $_GET['ID_Usager'];
-				$nom = $_POST['nom'];
-				$prenom = $_POST['prenom'];
-				$adresse = $_POST['adresse'];
-				$dateNaissance = $_POST['dateNaissance'];
-				$lieuNaissance = $_POST['lieuNaissance'];
+				$id = $_GET['idusager'];
+				$nom = $_POST['Nom'];
+				$prenom = $_POST['Prenom'];
+				$adresse = $_POST['Adresse'];
+				$dateNaissance = $_POST['DateNaissance'];
+				$lieuNaissance = $_POST['LieuNaissance'];
 				$numSecu = $_POST['NumSecu'];
 
 				$sql = "UPDATE carnet_adresse SET nom = :nom, prenom = :prenom, adresse = :adresse, codepostal = :codepostal, ville = :ville, tel = :tel WHERE ID_Personne = :id";
