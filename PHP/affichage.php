@@ -64,5 +64,7 @@
     $connexion->close();
     
     ?>
-
+    <div id="menu">
+        <button onclick="window.location.href='/projetPHP2023/PHP/menu.php'">Menu principal</button>
+    </div>
 </body>
