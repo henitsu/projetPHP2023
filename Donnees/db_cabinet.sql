@@ -1,5 +1,5 @@
 CREATE TABLE Medecin(
-   Id_Medecin COUNTER,
+   Id_Medecin INT AUTO_INCREMENT,
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
    Prenom VARCHAR(50),
@@ -7,7 +7,7 @@ CREATE TABLE Medecin(
 );
 
 CREATE TABLE Usager(
-   Id_Usager COUNTER,
+   Id_Usager INT AUTO_INCREMENT,
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
    Prenom VARCHAR(50),
@@ -25,7 +25,34 @@ CREATE TABLE RDV(
    Id_Medecin INT,
    DateHeureRDV DATETIME,
    DureeConsultationMinutes INT,
-   PRIMARY KEY(Id_Usager, Id_Medecin),
+   PRIMARY KEY(Id_Usager, Id_Medecin, DateHeureRDV),
    FOREIGN KEY(Id_Usager) REFERENCES Usager(Id_Usager),
    FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
 );
+
+INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'M', 'Dupont', 'Pierre');
+INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Dupuis', 'Jeanne');
+INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('3', 'M', 'Dujardin', 'Jean');
+INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('4', 'Mme', 'Dujour', 'Marine');
+
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('1', 'M', 'Briard', 'Bernard', 'adresse Bernard Briard', '10/10/2000', 'Toulouse', 'A1234567890', '1');
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('2', 'M', 'Degeois', 'Alexis', 'adresse Alexis Degeois', '11/11/2000', 'Paris', 'B1234567890', '2');
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('3', 'M', 'Meunier', 'Samuel', 'adresse Samuel Meunier', '12/12/2000', 'Nice', 'C1234567890', '3');
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('4', 'Mme', 'Laroche', 'Johana', 'adresse Johana Laroche', '1/1/2000', 'Paris', 'D1234567890', '4');
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('5', 'Mme', 'Lemaire', 'Kathie', 'adresse Kathie Lemaire', '2/02/2000', 'Agen', 'E1234567890', '1');
+INSERT INTO `usager` (`Id_Usager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('6', 'Mme', 'Meyer', 'Sarah', 'adresse Sarah Meyer', '09/09/2000', 'Brest', 'F1234567890', '2');
+
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('1', '1', '2024-12-18 14:00:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('2', '2', '2024-02-21 08:00:00', '60');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('3', '3', '2024-01-11 18:00:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('4', '4', '2024-03-28 15:30:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('5', '1', '2024-02-21 13:00:00', '60');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('6', '2', '2024-03-13 12:45:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('3', '3', '2024-03-28 19:00:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('4', '4', '2024-05-10 11:30:00', '60');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('5', '1', '2024-04-18 10:00:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('6', '2', '2024-03-27 9:00:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('1', '1', '2024-06-10 16:00:00', '60');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('2', '2', '2024-03-12 17:30:00', '30');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('5', '1', '2024-08-11 14:30:00', '60');
+INSERT INTO `rdv` (`Id_Usager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('6', '2', '2024-04-30 16:45:00', '60');
