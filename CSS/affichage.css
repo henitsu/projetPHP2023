@@ -2,6 +2,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-left: 50px;
 }
 
 th, td {
@@ -21,9 +22,9 @@ tr:hover {
 
 a {
     text-decoration: none;
-    color: #D2DEEA;
+    color: #1A212E;
 }
 
 a:hover {
-    color: #1A212E;
+    color: #D2DEEA;   
 }
