@@ -25,3 +25,8 @@ li{
     padding: 10px;
     margin: 10px;
 }
+
+.box:hover{
+    background-color: #81A7CA;
+    color: #fff;
+}
