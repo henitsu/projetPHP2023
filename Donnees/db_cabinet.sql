@@ -1,3 +1,5 @@
+create user 'etu1@localhost' identified by 'iutinfo';
+
 CREATE TABLE Medecin(
    Id_Medecin INT AUTO_INCREMENT,
    Civilite VARCHAR(50),

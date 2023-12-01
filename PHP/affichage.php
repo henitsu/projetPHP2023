@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/affichage.css">
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="/projetPHP2023/PHP/affichage.php">Usagers</a></li>
+            <li><a href="">Médecins</a></li>
+            <li><a href="">Consultations</a></li>
+            <li><a href="">Statistiques</a></li>
+            <a img="/projetPHP2023/Donnees/user_account.png" alt="connexion"></a>
+        </ul>
+    </header>
     <h1>Affichage des patients</h1>
     <?php
    
@@ -33,7 +42,7 @@
         // Affiche les résultats
         while ($row = $resultat->fetch_assoc()) {
             echo '<tr>';
-            echo '<td>' . $row['idusager'] . '</td>';
+            echo '<td>' . $row['Id_usager'] . '</td>';
             echo '<td>' . $row['Nom'] . '</td>';
             echo '<td>' . $row['Prenom'] . '</td>';
             echo '<td>' . $row['Adresse'] . '</td>';
