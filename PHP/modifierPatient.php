@@ -72,15 +72,15 @@
 				$lieuNaissance = $_POST['LieuNaissance'];
 				$numSecu = $_POST['NumSecu'];
 
-				$sql = "UPDATE carnet_adresse SET nom = :nom, prenom = :prenom, adresse = :adresse, codepostal = :codepostal, ville = :ville, tel = :tel WHERE ID_Personne = :id";
+				$sql = "UPDATE usager SET Nom = :Nom, Prenom = :Prenom, Adresse = :Adresse, DateNaissance = :DateNaissance, LieuNaissance = :LieuNaissance, NumSecu = :NumSecu WHERE idusager = :idusager";
 				$stmt = $dbco->prepare($sql);
-				$stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
-				$stmt->bindParam(':prenom', $prenom, PDO::PARAM_STR);
-				$stmt->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-				$stmt->bindParam(':dateNaissance', $dateNaissance, PDO::PARAM_STR);
-				$stmt->bindParam(':lieuNaissance', $lieuNaissance, PDO::PARAM_STR);
-				$stmt->bindParam(':numSecu', $numSecu, PDO::PARAM_STR);
-				$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
+				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
+				$stmt->bindParam(':Adresse', $adresse, PDO::PARAM_STR);
+				$stmt->bindParam(':DateNaissance', $dateNaissance, PDO::PARAM_STR);
+				$stmt->bindParam(':LieuNaissance', $lieuNaissance, PDO::PARAM_STR);
+				$stmt->bindParam(':NumSecu', $numSecu, PDO::PARAM_STR);
+				$stmt->bindParam(':idusager', $id, PDO::PARAM_INT);
 				$stmt->execute();
 
 				echo 'Usager modifié avec succès';
