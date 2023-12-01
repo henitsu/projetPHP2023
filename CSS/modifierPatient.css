@@ -8,6 +8,13 @@ form{
     border-radius: 5px;
 }
 
+h1{
+    text-align: center;
+    font-size: 30px;
+    color: #70CFE1;
+    background-color: aqua;
+}
+
 input[type=text], input[type=password], input[type=number], input[type=date] {
     width: 100%;
     padding: 12px 20px;
