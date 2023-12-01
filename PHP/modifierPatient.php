@@ -51,27 +51,30 @@
 				$id = $usager['idusager'];
 
 				?>
-				<form action="modifierPatient.php?idusager=<?php echo $id; ?>" method="post">
-					<label for="Nom">Nom :</label>
-					<input type="text" id="nom" name="Nom" value="<?php echo $usager['Nom']; ?>" required><br>
+				<div class="form">
+					<form action="modifierPatient.php?idusager=<?php echo $id; ?>" method="post">
+						<label for="Nom">Nom :</label>
+						<input type="text" id="nom" name="Nom" value="<?php echo $usager['Nom']; ?>" required><br>
 
-					<label for="prenom">Prénom :</label>
-					<input type="text" id="prenom" name="Prenom" value="<?php echo $usager['Prenom']; ?>" required><br>
+						<label for="prenom">Prénom :</label>
+						<input type="text" id="prenom" name="Prenom" value="<?php echo $usager['Prenom']; ?>" required><br>
 
-					<label for="adresse">Adresse :</label>
-					<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
+						<label for="adresse">Adresse :</label>
+						<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
 
-					<label for="codepostal">Date naissance :</label>
-					<input type="text" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
+						<label for="codepostal">Date naissance :</label>
+						<input type="text" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
 
-					<label for="ville">Lieu naissance :</label>
-					<input type="text" id="lieuNaissance" name="LieuNaissance" value="<?php echo $usager['LieuNaissance']; ?>" required><br>
+						<label for="ville">Lieu naissance :</label>
+						<input type="text" id="lieuNaissance" name="LieuNaissance" value="<?php echo $usager['LieuNaissance']; ?>" required><br>
 
-					<label for="tel">Numéro de sécurité sociale :</label>
-					<input type="text" id="numSecu" name="NumSecu" value="<?php echo $usager['NumSecu']; ?>" required><br>
+						<label for="tel">Numéro de sécurité sociale :</label>
+						<input type="text" id="numSecu" name="NumSecu" value="<?php echo $usager['NumSecu']; ?>" required><br>
 
-					<input type="submit" value="Modifier l'usager">
-				</form>
+						<input type="submit" value="Modifier l'usager">
+					</form>
+				</div>
+				
 				<?php
 			} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$id = $_GET['idusager'];
