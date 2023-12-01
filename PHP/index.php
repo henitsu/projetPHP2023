@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $servname = "localhost";
+    $dbname = "patientele";
+    $user = "etu1";
+    $pass = "iutinfo";
+
+    if(isset($_SESSION['identifiant'])){
+        header('Location: /projetPHP2023/PHP/menu.php');
+    }else{
+        header('Location: /projetPHP2023/PHP/index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,8 +27,8 @@
         <div id="auth">
             <h1>Authentification</h1>
         
-            <form>
-                <label>Identifiant</label>
+            <form action="" method="GET">
+                <label id="identifiant">Identifiant</label>
                 <br>
                 <input type="text" placeholder="identifiant"><br><br>
                 <label>Mot de passe</label><br>
