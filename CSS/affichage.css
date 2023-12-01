@@ -31,11 +31,19 @@ a:hover {
 }
 
 #menu{
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    padding: 5%;
+}
+
+button{
+    background-color: #70CFE1;
+    color: white;
     padding: 5px;
-    border-radius: 5px;
-    background-color: #D2DEEA;
+    margin: 5px;
+    border: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
