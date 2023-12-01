@@ -1,9 +1,6 @@
 body{
     background-color: #f5f5f5;
-    @font-face {
-        font-family: 'Montserrat', sans-serif;
-        src: url(/projetPHP2023/Donnees/Montserrat/Montserrat_font.ttf);
-    }
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #333;
     line-height: 1.42857143;
