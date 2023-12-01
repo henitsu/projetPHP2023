@@ -17,7 +17,7 @@
         </ul>
     </header>
     <main>
-        <h1>Bienvenue, <?php $_GET["name"] ?></h1>
+        <h1>Bienvenue, <?php ?></h1>
         <div class="grid">
             <div id="usagers" class="box">
                 <h2>Usagers</h2>
