@@ -42,7 +42,7 @@
         // Affiche les résultats
         while ($row = $resultat->fetch_assoc()) {
             echo '<tr>';
-            echo '<td>' . $row['Id_usager'] . '</td>';
+            echo '<td>' . $row['idusager'] . '</td>';
             echo '<td>' . $row['Nom'] . '</td>';
             echo '<td>' . $row['Prenom'] . '</td>';
             echo '<td>' . $row['Adresse'] . '</td>';
