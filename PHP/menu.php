@@ -8,15 +8,7 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/menu.css">
 </head>
 <body>
-    <header>
-        <ul>
-            <li><a href="/projetPHP2023/PHP/affichage.php">Usagers</a></li>
-            <li><a href="">Médecins</a></li>
-            <li><a href="">Consultations</a></li>
-            <li><a href="">Statistiques</a></li>
-            <a img="/projetPHP2023/Donnees/user_account.png" alt="connexion"></a>
-        </ul>
-    </header>
+    <?php include '/HTML/header.html'; ?>
     <main>
         <h1>Bienvenue, <?php ?></h1>
         <div class="grid">

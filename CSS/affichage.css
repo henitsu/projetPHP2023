@@ -29,21 +29,3 @@ a {
 a:hover {
     color: #D2DEEA;   
 }
-
-#menu{
-    margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-    padding: 5%;
-}
-
-button{
-    background-color: #70CFE1;
-    color: white;
-    padding: 5px;
-    margin: 5px;
-    border: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
