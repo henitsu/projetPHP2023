@@ -41,7 +41,7 @@
 				$id = $usager['idusager'];
 
 				?>
-				<form action="modifier.php?idusager=<?php echo $id; ?>" method="post">
+				<form action="modifierPatient.php?idusager=<?php echo $id; ?>" method="post">
 					<label for="Nom">Nom :</label>
 					<input type="text" id="nom" name="Nom" value="<?php echo $usager['Nom']; ?>" required><br>
 
