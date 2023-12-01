@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Menu</title>
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
+    <link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/menu.css">
 </head>
 <body>

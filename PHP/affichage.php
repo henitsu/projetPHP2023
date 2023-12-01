@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gestion d'un cabinet médical</title>
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
+    <link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/affichage.css">
 </head>
 <body>
