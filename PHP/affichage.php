@@ -4,20 +4,10 @@
     <meta charset="utf-8">
     <title>Gestion d'un cabinet médical</title>
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
-    <link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/affichage.css">
 </head>
 <body>
-    <header>
-        <ul>
-            <li><a href="/projetPHP2023/PHP/menu.php">Menu principal</a></li>
-            <li><a href="/projetPHP2023/PHP/affichage.php">Usagers</a></li>
-            <li><a href="">Médecins</a></li>
-            <li><a href="">Consultations</a></li>
-            <li><a href="">Statistiques</a></li>
-            <a img="/projetPHP2023/Donnees/user_account.png" alt="connexion"></a>
-        </ul>
-    </header>
+    <?php include 'header.php'; ?>
     <h1>Affichage des patients</h1>
     <?php
    
