@@ -91,5 +91,6 @@
 			echo "Erreur : " . $e->getMessage();
 		}
 	?>
+	<button onclick="window.location.href='/projetPHP2023/PHP/affichage.php'">Retour</button>
 
 </body>
