@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/affichage.css">
 </head>
 <body>
-
+<h1>Affichage des patients</h1>
 <?php
     // Vérifie si le formulaire a été soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Connexion à la base de données (à personnaliser avec vos propres informations de connexion)
-        $connexion = new mysqli('localhost', 'etu1', 'iutinfo', 'repertoire_contacts');
+        $connexion = new mysqli('localhost', 'etu1', 'iutinfo', 'patientele');
 
         // Vérifie la connexion
         if ($connexion->connect_error) {
