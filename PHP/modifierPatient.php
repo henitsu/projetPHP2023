@@ -4,9 +4,19 @@
     <meta charset="utf-8">
     <title>Modification patient</title>
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
+	<link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/modifierPatient.css">
 </head>
 <body>
+	<header>
+        <ul>
+            <li><a href="/projetPHP2023/PHP/affichage.php">Usagers</a></li>
+            <li><a href="">Médecins</a></li>
+            <li><a href="">Consultations</a></li>
+            <li><a href="">Statistiques</a></li>
+            <a img="/projetPHP2023/Donnees/user_account.png" alt="connexion"></a>
+        </ul>
+    </header>
 
     <h1>Modification des informations de [nom prenom]</h1>
 
