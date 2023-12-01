@@ -7,6 +7,10 @@ header{
     font-weight: bold;
 }
 
+a{
+    text-decoration: none;
+}
+
 li{
     display: inline;
     margin: 0 20px 0 20px;

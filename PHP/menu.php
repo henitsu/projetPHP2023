@@ -20,7 +20,7 @@
         <h1>Bienvenue, <?php ?></h1>
         <div class="grid">
             <div id="usagers" class="box">
-                <h2>Usagers</h2>
+                <a href="/projetPHP2023/PHP/affichage.php"></a><h2>Usagers</h2>
             </div>
             <div id="medecins" class="box">
                 <h2>Médecins</h2>

@@ -27,7 +27,7 @@
         <div id="auth">
             <h1>Authentification</h1>
         
-            <form action="" method="GET">
+            <form action="" method="get">
                 <label id="identifiant">Identifiant</label>
                 <br>
                 <input type="text" placeholder="identifiant"><br><br>
