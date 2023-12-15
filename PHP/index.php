@@ -1,6 +1,6 @@
 
 <?php
-/*
+
     session_start();
     $servname = "localhost";
     $dbname = "patientele";
@@ -11,7 +11,7 @@
         header('Location: /projetPHP2023/PHP/menu.php');
     }else{
         header('Location: /projetPHP2023/PHP/index.php');
-    }*/
+    }
 ?>
 
 <!DOCTYPE html>

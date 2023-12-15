@@ -1,4 +1,9 @@
-create user 'etu1@localhost' identified by 'iutinfo';
+CREATE OR REPLACE USER 'etu1'@'localhost' IDENTIFIED BY 'iutinfo';
+DROP DATABASE IF EXISTS patientele;
+create database patientele;
+grant all privileges on patientele.* TO 'etu1'@'localhost' identified by 'iutinfo';
+flush privileges;
+USE patientele;
 
 CREATE TABLE Medecin(
    Id_Medecin INT AUTO_INCREMENT,
@@ -22,6 +27,14 @@ CREATE TABLE Usager(
    FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
 );
 
+CREATE TABLE Secretaire(
+   Id_Secretaire INT AUTO_INCREMENT,
+   Civilite VARCHAR(50),
+   Nom VARCHAR(50),
+   Prenom VARCHAR(50),
+   PRIMARY KEY(Id_Secretaire)
+);
+
 CREATE TABLE RDV(
    idusager INT,
    Id_Medecin INT,
@@ -31,6 +44,11 @@ CREATE TABLE RDV(
    FOREIGN KEY(idusager) REFERENCES Usager(idusager),
    FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
 );
+
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'Mlle', 'Jonquille', 'Tamara');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Lapin', 'Marie');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('3', 'Mlle', 'Coquelicot', 'Annie');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('4', 'Mme', 'Tulipe', 'Suzanne');
 
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'M', 'Dupont', 'Pierre');
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Dupuis', 'Jeanne');
