@@ -9,7 +9,7 @@
 <body>
     <?php include 'header.php'; ?>
     <main>
-        <h1>Bienvenue, <?php ?></h1>
+        <h1>Bienvenue, <?php include 'connexion.php' ?></h1>
         <div class="grid">
             <div id="usagers" class="box">
                 <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>
