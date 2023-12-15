@@ -1,14 +1,34 @@
 <?php
-    // récupération du nom et prénom de la secrétaire connectée
-    session_start();
-    $login = $_SESSION['identifiant'];
+    // récupération des identifiants de connexion
+    class Connexion{
+        private $identifiant;
+        private $servname;
+        private $dbname;
+        private $user;
+        private $pass;
+        private $nom;
+        private $prenom;
 
-    $pdo = new PDO("mysql:host=localhost;dbname=patientele", "etu1", "iutinfo");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        public function __construct($identifiant, $servname, $dbname, $user, $pass){
+            $this->identifiant = $identifiant;
+            $this->servname = $servname;
+            $this->dbname = $dbname;
+            $this->user = $user;
+            $this->pass = $pass;
 
-    $sql = "SELECT nom, prenom FROM secretaire WHERE Login = '$login'";
-    $result = $pdo->query($sql);
-    $row = $result->fetch(PDO::FETCH_ASSOC);
+            // connexion à la base de données
+            $conn = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT nom, prenom FROM secretaire WHERE login = $identifiant";
+            $result = $conn->query($sql);
+            $row = $result->fetch(PDO::FETCH_ASSOC);
+            $this->nom = $row['nom'];
+            $this->prenom = $row['prenom'];
+        }
 
-    echo $row['prenom'] . " " . $row['nom'];
+        // récupération du nom et prénom des secrétaires
+        public function affichage(){
+            echo $this->nom . " " . $this->prenom;
+        }
+    }
 ?>
