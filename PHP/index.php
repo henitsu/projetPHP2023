@@ -27,7 +27,7 @@
             <h1>Authentification</h1>
         
             <form action="menu.php" method="post">
-                <label id="identifiant">Identifiant</label>
+                <label for="identifiant">Identifiant</label>
                 <br>
                 <input type="text" id="identifiant" placeholder="identifiant"><br><br>
                 <label>Mot de passe</label><br>
