@@ -1,8 +1,3 @@
-
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,12 +13,16 @@
         <div id="auth">
             <h1>Authentification</h1>
         
-            <form action="menu.php" method="post">
+            <form id="connexion" action="menu.php" method="post">
                 <label for="identifiant">Identifiant</label>
                 <input type="text" id="identifiant" placeholder="identifiant">
-                <label>Mot de passe</label>
-                <input type="password">
+
+                <label for="password">Mot de passe</label>
+                <input id="password" type="password">
+                
                 <a href="#" id="mdp">Mot de passe oublié</a>
+
+                <label for="valider"></label>
                 <input id="valider" type="submit" value="Se connecter">
             </form>
         </div>

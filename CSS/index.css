@@ -10,11 +10,9 @@ h1{
     text-align: center;
 }
 
-form{
-    margin-left: 10%;
-    margin-right: 90%;
-    text-align: left;
-    display: table-row;
+form {
+    margin: 20px;
+    display: block;
 }
 
 #mdp {
@@ -43,6 +41,7 @@ input[type="password"]::placeholder {
     align-items: left;
     margin-right: 65%;
 }
+
 #partieDroite{
     vertical-align: middle;
 }
