@@ -21,8 +21,10 @@
                 $conn = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sql = "SELECT nom, prenom FROM secretaire WHERE login = $identifiant";
-                $result = $conn->query($sql);
-                $row = $result->fetch(PDO::FETCH_ASSOC);
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':login', $identifiant, PDO::PARAM_STR);
+                $stmt->execute();
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 $this->nom = $row['nom'];
                 $this->prenom = $row['prenom'];
             } catch(PDOException $e){
