@@ -46,10 +46,10 @@ CREATE TABLE RDV(
    FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
 );
 
-INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'Mlle', 'Jonquille', 'Tamara');
-INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Lapin', 'Marie');
-INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('3', 'Mlle', 'Coquelicot', 'Annie');
-INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('4', 'Mme', 'Tulipe', 'Suzanne');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'Mlle', 'Jonquille', 'Tamara', 'TJonquille');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Lapin', 'Marie', 'MLapin');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('3', 'Mlle', 'Coquelicot', 'Annie', 'ACoquelicot');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`) VALUES ('4', 'Mme', 'Tulipe', 'Suzanne', 'STulipe');
 
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'M', 'Dupont', 'Pierre');
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Dupuis', 'Jeanne');
