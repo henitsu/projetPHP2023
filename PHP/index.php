@@ -1,14 +1,6 @@
 
 <?php
 
-    $servname = "localhost";
-    $dbname = "patientele";
-    $user = "etu1";
-    $pass = "iutinfo";
-
-    if(isset($_POST['valider'])){
-        header('Location: /projetPHP2023/PHP/menu.php');
-    }
 ?>
 
 <!DOCTYPE html>
