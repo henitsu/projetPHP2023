@@ -9,8 +9,6 @@
 
     if(isset($_SESSION['identifiant'])){
         header('Location: /projetPHP2023/PHP/menu.php');
-    }else{
-        header('Location: /projetPHP2023/PHP/index.php');
     }
 ?>
 
