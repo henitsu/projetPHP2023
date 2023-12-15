@@ -29,7 +29,7 @@
             <form action="menu.php" method="post">
                 <label id="identifiant">Identifiant</label>
                 <br>
-                <input type="text" placeholder="identifiant"><br><br>
+                <input type="text" id="identifiant" placeholder="identifiant"><br><br>
                 <label>Mot de passe</label><br>
                 <input type="password"><br>
                 <a href="#" id="mdp">Mot de passe oublié</a><br> <br>
