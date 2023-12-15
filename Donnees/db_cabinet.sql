@@ -32,6 +32,7 @@ CREATE TABLE Secretaire(
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
    Prenom VARCHAR(50),
+   Login VARCHAR(10),
    PRIMARY KEY(Id_Secretaire)
 );
 
