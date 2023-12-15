@@ -43,7 +43,7 @@
 
         <div id="partieDroite">
             <h1>Gestionnaire d'un cabinet médical</h1>
-            <img src="/projetPHP2023/Donnees/doctor.jpg" alt="image docteur">
+            <img src="/projetPHP2023/Donnees/docteur.jpg" alt="docteur">
         </div>
     </div>
 
