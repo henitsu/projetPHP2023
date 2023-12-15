@@ -1,13 +1,12 @@
 
 <?php
 
-    session_start();
     $servname = "localhost";
     $dbname = "patientele";
     $user = "etu1";
     $pass = "iutinfo";
 
-    if(isset($_SESSION['identifiant'])){
+    if(isset($_POST['valider'])){
         header('Location: /projetPHP2023/PHP/menu.php');
     }
 ?>
@@ -27,7 +26,7 @@
         <div id="auth">
             <h1>Authentification</h1>
         
-            <form action="menu.php" method="get">
+            <form action="menu.php" method="post">
                 <label id="identifiant">Identifiant</label>
                 <br>
                 <input type="text" placeholder="identifiant"><br><br>

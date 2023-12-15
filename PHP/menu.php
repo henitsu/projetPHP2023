@@ -16,7 +16,7 @@
                 $dbname = "patientele";
                 $user = "etu1";
                 $pass = "iutinfo";
-                $identifiant = new Connexion($_GET['identifiant'], $servname, $dbname, $user, $pass);
+                $identifiant = new Connexion($_POST['identifiant'], $servname, $dbname, $user, $pass);
                 $identifiant->affichage();
             ?>
         </h1>
