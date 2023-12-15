@@ -10,10 +10,11 @@ h1{
     text-align: center;
 }
 
-#form{
+form{
     margin-left: 10%;
     margin-right: 90%;
     text-align: left;
+    display: table-row;
 }
 
 #mdp {
