@@ -11,18 +11,9 @@ h1{
 }
 
 #connexion {
-    margin: 30px;
-    display: block;
-}
-
-label{
-    font-size: 15px;
+    margin: 20px;
     text-align: left;
-}
-
-#mdp {
-    font-size: 15px;
-    text-align: end;
+    font-size: 20px;
 }
 
 input{
@@ -31,14 +22,6 @@ input{
     border-width: 0;
     width:200px;
     height :30px;
-}
-
-input[type="text"]::placeholder {
-    text-align:left;
-}
-
-input[type="password"]::placeholder {
-    text-align:left;
 }
 
 #page {
