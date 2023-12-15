@@ -10,9 +10,14 @@ h1{
     text-align: center;
 }
 
-form {
+#connexion {
     margin: 30px;
     display: block;
+}
+
+label{
+    font-size: 15px;
+    text-align: left;
 }
 
 #mdp {
