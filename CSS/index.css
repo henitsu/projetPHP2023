@@ -10,6 +10,12 @@ h1{
     text-align: center;
 }
 
+#form{
+    margin-left: 10%;
+    margin-right: 90%;
+    text-align: left;
+}
+
 #mdp {
     font-size: 15px;
     text-align: end;

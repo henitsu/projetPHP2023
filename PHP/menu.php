@@ -16,10 +16,9 @@
                 $dbname = "patientele";
                 $user = "etu1";
                 $pass = "iutinfo";
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $identifiant = new Connexion($_POST['identifiant'], $servname, $dbname, $user, $pass);
-                    $identifiant->affichage();
-                }
+                $id = $_POST['identifiant'];
+                $identifiant = new Connexion($id, $servname, $dbname, $user, $pass);
+                $identifiant->affichage();
             ?>
         </h1>
         <div class="grid">
