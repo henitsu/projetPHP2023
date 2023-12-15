@@ -11,48 +11,49 @@
     <h1>Affichage des patients</h1>
     <?php
    
+    $mdp = 'iutinfo';
+    $server = 'localhost';
+    $login = "etu1";
     // Connexion à la base de données (à personnaliser avec vos propres informations de connexion)
-    $connexion = new mysqli('localhost', 'etu1', 'iutinfo', 'patientele');
+    
+    try {
+        $linkpdo = new PDO("mysql:host=$server;dbname=$patientele", $login, $mdp);
 
-    // Vérifie la connexion
-    if ($connexion->connect_error) {
-        die('Erreur de connexion à la base de données : ' . $connexion->connect_error);
-    }
+        // Prépare la requête SQL
+        $requete = "SELECT * FROM usager";
 
-    // Prépare la requête SQL
-    $requete = "SELECT * FROM usager";
+        // Exécute la requête
+        $resultat = $connexion->query($requete);
 
-    // Exécute la requête
-    $resultat = $connexion->query($requete);
+        // Vérifie s'il y a des résultats
+        if ($resultat->num_rows > 0) {
+            echo '<h2>Votre patientèle :</h2>';
+            echo '<table border="1">';
+            echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Date naissance</th><th>Lieu naissance</th><th>Numéro sécurité sociale</th></tr>';
 
-    // Vérifie s'il y a des résultats
-    if ($resultat->num_rows > 0) {
-        echo '<h2>Votre patientèle :</h2>';
-        echo '<table border="1">';
-        echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Date naissance</th><th>Lieu naissance</th><th>Numéro sécurité sociale</th></tr>';
-
-        // Affiche les résultats
-        while ($row = $resultat->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row['idusager'] . '</td>';
-            echo '<td>' . $row['Nom'] . '</td>';
-            echo '<td>' . $row['Prenom'] . '</td>';
-            echo '<td>' . $row['Adresse'] . '</td>';
-            echo '<td>' . $row['DateNaissance'] . '</td>';
-            echo '<td>' . $row['LieuNaissance'] . '</td>';
-            echo '<td>' . $row['NumSecu'] . '</td>';
-            echo '<td><a href="modifierPatient.php?nom=' . $row['Nom'] . '&prenom=' . $row['Prenom'] . '&adresse=' . $row['Adresse'] . '&dateNaissance=' . $row['DateNaissance'] . '&lieuNaissance=' . $row['LieuNaissance'] . '&numSecu=' . $row['NumSecu'] . '">Modifier</a> | 
-            <a href="supprimer.php?nom=' . $row['Nom'] . '&prenom=' . $row['Prenom'] . '&adresse=' . $row['Adresse'] . '&dateNaissance=' . $row['DateNaissance'] . '&lieuNaissance=' . $row['LieuNaissance'] . '&numSecu=' . $row['NumSecu'] . '">Supprimer</a></td>';
-            echo '</tr>';
+            // Affiche les résultats
+            while ($row = $resultat->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row['idusager'] . '</td>';
+                echo '<td>' . $row['Nom'] . '</td>';
+                echo '<td>' . $row['Prenom'] . '</td>';
+                echo '<td>' . $row['Adresse'] . '</td>';
+                echo '<td>' . $row['DateNaissance'] . '</td>';
+                echo '<td>' . $row['LieuNaissance'] . '</td>';
+                echo '<td>' . $row['NumSecu'] . '</td>';
+                echo '<td><a href="modifierPatient.php?nom=' . $row['Nom'] . '&prenom=' . $row['Prenom'] . '&adresse=' . $row['Adresse'] . '&dateNaissance=' . $row['DateNaissance'] . '&lieuNaissance=' . $row['LieuNaissance'] . '&numSecu=' . $row['NumSecu'] . '">Modifier</a> | 
+                <a href="supprimer.php?nom=' . $row['Nom'] . '&prenom=' . $row['Prenom'] . '&adresse=' . $row['Adresse'] . '&dateNaissance=' . $row['DateNaissance'] . '&lieuNaissance=' . $row['LieuNaissance'] . '&numSecu=' . $row['NumSecu'] . '">Supprimer</a></td>';
+                echo '</tr>';
+            }
+            echo '</table>';
+        } else {
+            echo '<p>Aucun contact trouvé avec les mots-clés saisis.</p>';
         }
-
-        echo '</table>';
-    } else {
-        echo '<p>Aucun contact trouvé avec les mots-clés saisis.</p>';
     }
 
-    // Ferme la connexion à la base de données
-    $connexion->close();
+    catch (Exception $e) {
+        die('Erreur de connexion à la base de données :: ' . $e->getMessage());
+    }
     
     ?>
 </body>
