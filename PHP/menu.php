@@ -9,18 +9,7 @@
 <body>
     <?php include 'header.php'; ?>
     <main>
-        <h1>Bienvenue,
-            <?php
-                require 'connexion.php';
-                $servname = "localhost";
-                $dbname = "patientele";
-                $user = "etu1";
-                $pass = "iutinfo";
-                $id = $_POST['identifiant'];
-                $identifiant = new Connexion($id, $servname, $dbname, $user, $pass);
-                $identifiant->affichage();
-            ?>
-        </h1>
+        <h1>Bienvenue, <?php include 'connexion.php' ?></h1>
         <div class="grid">
             <div id="usagers" class="box">
                 <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>

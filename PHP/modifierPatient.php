@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/modifierPatient.css">
 </head>
 <body>
-	<?php include 'header.php'; ?>
+	<?php include 'header.php'; 
+		$nom = $_GET['nom'];
+		$prenom = $_GET['prenom'];
+	?>
 
-    <h1>Modification des informations de [nom prenom]</h1>
+    <h1>Modification des informations de <?php echo $prenom ." ". $nom; ?></h1>
 
     <?php
 		$servname = "localhost";
@@ -47,19 +50,19 @@
 						<label for="Nom">Nom :</label>
 						<input type="text" id="nom" name="Nom" value="<?php echo $usager['Nom']; ?>" required><br>
 
-						<label for="prenom">Prénom :</label>
+						<label for="Prenom">Prénom :</label>
 						<input type="text" id="prenom" name="Prenom" value="<?php echo $usager['Prenom']; ?>" required><br>
 
-						<label for="adresse">Adresse :</label>
+						<label for="1dresse">Adresse :</label>
 						<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
 
-						<label for="codepostal">Date naissance :</label>
+						<label for="DateNaissance">Date naissance :</label>
 						<input type="text" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
 
-						<label for="ville">Lieu naissance :</label>
+						<label for="LieuNaissance">Lieu naissance :</label>
 						<input type="text" id="lieuNaissance" name="LieuNaissance" value="<?php echo $usager['LieuNaissance']; ?>" required><br>
 
-						<label for="tel">Numéro de sécurité sociale :</label>
+						<label for="NumSecu">Numéro de sécurité sociale :</label>
 						<input type="text" id="numSecu" name="NumSecu" value="<?php echo $usager['NumSecu']; ?>" required><br>
 
 						<input type="submit" value="Modifier l'usager">
@@ -68,7 +71,7 @@
 				
 				<?php
 			} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$id = $_GET['idusager'];
+				$id = $_POST['idusager'];
 				$nom = $_POST['Nom'];
 				$prenom = $_POST['Prenom'];
 				$adresse = $_POST['Adresse'];
@@ -95,6 +98,6 @@
 			echo "Erreur : " . $e->getMessage();
 		}
 	?>
-	<button onclick="window.location.href='/projetPHP2023/PHP/affichage.php'">Retour</button>
-
+	<!--<button onclick="window.location.href='/projetPHP2023/PHP/affichagePatient.php'">Retour</button>-->
+	<button onclick="window.location.href='/projetPHP2023-main/PHP/affichagePatient.php'">Retour</button>
 </body>
