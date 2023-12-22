@@ -16,22 +16,25 @@
 				$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 				// Stockage de l'identifiant du médecin
-				$id = $_GET['id'];			
+				$id = $_GET['Id_Medecin'];	
+				$nom = $_GET['nom'];
+				$prenom = $_GET['prenom'];		
 				
 				// Utilisation de la clause WHERE avec une requête préparée
+
+				// Suppression usager ????
+				$suppressionUsager = "UPDATE usager SET Id_Medecin = null WHERE Id_Medecin = :Id_Medecin";
+
 				// Suppression medecin
 				$suppressionMedecin = "DELETE FROM medecin WHERE Id_Medecin = :Id_Medecin";
-
-                // Suppression usager ????
-				$suppressionUsager = "DELETE FROM usager WHERE Id_Medecin = :Id_Medecin";
 				
 				// Suppression RDV
 				$suppressionRDV = "DELETE FROM RDV WHERE Id_Medecin = :Id_Medecin";
 				
 				// Préparation des requêtes
+				$stmtUsager = $dbco->prepare($suppressionUsager);
 				$stmtRDV = $dbco->prepare($suppressionRDV);
 				$stmtMedecin = $dbco->prepare($suppressionMedecin);
-                $stmtUsager = $dbco->prepare($suppressionUsager);
 				
 				// Liaison des paramètres requête suppression RDV
 				$stmtRDV->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
@@ -43,9 +46,10 @@
 				$stmtUsager->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
 
 				// Exécution des requêtes
+				
+                $stmtUsager->execute();
 				$stmtRDV->execute();
 				$stmtMedecin->execute();
-                $stmtUsager->execute();
 				
 				echo $prenom ." " . $nom . " supprimé avec succès";
 			} catch(PDOException $e) {
