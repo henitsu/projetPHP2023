@@ -8,7 +8,7 @@
 </head>
 <body>
 	<?php include 'header.php';
-		require 'connexion.php';
+		require 'connexionBD.php';
 
 		try {
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {

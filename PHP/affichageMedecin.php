@@ -11,7 +11,7 @@
     <h1>Affichage des médecins</h1>
     <?php
     // Connexion à la base de données
-    require 'connexion.php';
+    require 'connexionBD.php';
 
     $reponse = $bdd->query("SELECT * FROM medecin");
     $donnees = $reponse->fetchAll();

@@ -14,19 +14,22 @@
             $session_id = session_id();
         }
         $login = $_SESSION['identifiant'];
+
+        require 'connexionBD.php';
+        $sql = "SELECT Nom, Prenom FROM secretaire WHERE login = :Login";
+        $stmt = $bdd->prepare($sql);
+        $stmt->bindParam(':Login', $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nom = $secretaire['Nom'];
+        $prenom = $secretaire['Prenom'];
+
+        // Création des variables de session
+        $_SESSION['nom'] = $nom;
+        $_SESSION['prenom'] = $prenom;
     ?>
     <main>
-        <?php
-            require 'connexion.php';
-            $sql = "SELECT Nom, Prenom FROM secretaire WHERE login = :Login";
-            $stmt = $bdd->prepare($sql);
-            $stmt->bindParam(':Login', $login, PDO::PARAM_STR);
-            $stmt->execute();
-            $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
-            $nom = $secretaire['Nom'];
-            $prenom = $secretaire['Prenom'];
-            echo '<h1>Bienvenue ' . $prenom . ' ' . $nom . ' !</h1>';
-        ?>
+        <h1>Bienvenue <?php echo $prenom . " " . $nom; ?> !</h1>
         <div class="grid">
             <div id="usagers" class="box">
                 <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>

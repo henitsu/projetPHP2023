@@ -8,14 +8,14 @@
 </head>
 <body>
 
-    <div id="page">
+    <div class="page">
 
-        <div id="auth">
+        <div class="auth">
             <h1>Authentification</h1>
         
             <form id="connexion" action="menu.php" method="post">
                 <label for="identifiant">Identifiant</label>
-                <input type="text" name="identifiant" placeholder="identifiant">
+                <input id="identifiant" type="text" name="identifiant" placeholder="identifiant">
 
                 <label for="password">Mot de passe</label>
                 <input id="password" type="password" placeholder="Ecrivez n'importe quoi">
@@ -27,9 +27,9 @@
             </form>
         </div>
 
-        <div id="partieDroite">
+        <div class="partieDroite">
             <h1>Gestionnaire d'un cabinet médical</h1>
-            <img src="/projetPHP2023/Donnees/docteur.jpg" alt="docteur">
+            <img id="image" src="/projetPHP2023/Donnees/doctor.png" alt="docteur">
         </div>
     </div>
 

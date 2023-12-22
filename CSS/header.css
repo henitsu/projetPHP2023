@@ -22,7 +22,28 @@ header a:hover{
 }
 
 
-li{
+.menuheader li{
     display: inline;
     margin: 0 20px 0 20px;
+}
+
+
+.sousmenu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.sousmenu li {
+    padding: 12px;
+    text-align: center;
+}
+
+.menuheader img {
+    cursor: pointer;
 }

@@ -10,19 +10,8 @@
     <?php include 'header.php'; ?>
     <h1>Affichage des consultations</h1>
     <?php
-   
-    $servname = "localhost";
-    $dbname = "patientele";
-    $user = "etu1";
-    $pass = "iutinfo";
-    
-    try {
-        $bdd = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-    }
-    catch (Exception $e) {
-        die('Erreur de connexion à la base de données :: ' . $e->getMessage());
-    }    
-    
+
+    require 'connexionBD.php';
 
     $reponse = $bdd->query("SELECT DISTINCT Usager.Nom idusager, Medecin.Nom Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes FROM
      RDV, Usager, Medecin WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");

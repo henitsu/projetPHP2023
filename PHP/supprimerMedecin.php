@@ -10,7 +10,7 @@
         </h1>
 		<?php
 			// Connexion à la base de données
-			require 'connexion.php';
+			require 'connexionBD.php';
 			
 			try {
 				// Stockage de l'identifiant du médecin

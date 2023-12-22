@@ -7,7 +7,7 @@
     <body>
         <h1>Supprimer un usager</h1>
 		<?php
-			require 'connexion.php';
+			require 'connexionBD.php';
 			
 			try {
 				// Stockage de l'identifiant de l'usager
