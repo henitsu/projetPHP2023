@@ -15,10 +15,10 @@
         
             <form id="connexion" action="menu.php" method="post">
                 <label for="identifiant">Identifiant</label>
-                <input type="text" id="identifiant" placeholder="identifiant">
+                <input type="text" name="identifiant" placeholder="identifiant">
 
                 <label for="password">Mot de passe</label>
-                <input id="password" type="password">
+                <input id="password" type="password" placeholder="Ecrivez n'importe quoi">
                 
                 <a href="#" id="mdp">Mot de passe oublié</a>
 

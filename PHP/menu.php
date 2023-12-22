@@ -7,9 +7,26 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/menu.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php
+        include 'header.php';
+        if (!empty($_POST['identifiant'])){
+            $_SESSION["identifiant"] = $_POST["identifiant"];
+            $session_id = session_id();
+        }
+        $login = $_SESSION['identifiant'];
+    ?>
     <main>
-        <h1>Bienvenue, <?php include 'connexion.php' ?></h1>
+        <?php
+            require 'connexion.php';
+            $sql = "SELECT Nom, Prenom FROM secretaire WHERE login = :Login";
+            $stmt = $bdd->prepare($sql);
+            $stmt->bindParam(':Login', $login, PDO::PARAM_STR);
+            $stmt->execute();
+            $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
+            $nom = $secretaire['Nom'];
+            $prenom = $secretaire['Prenom'];
+            echo '<h1>Bienvenue ' . $prenom . ' ' . $nom . ' !</h1>';
+        ?>
         <div class="grid">
             <div id="usagers" class="box">
                 <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
