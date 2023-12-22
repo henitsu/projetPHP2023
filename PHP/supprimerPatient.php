@@ -7,15 +7,12 @@
     <body>
         <h1>Supprimer un usager</h1>
 		<?php
-			$servname = "localhost"; $dbname = "patientele"; $user = "etu1"; $pass = "iutinfo";
+			require 'connexion.php';
 			
 			try {
-				$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-				$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 				// Stockage de l'identifiant de l'usager
-				$idusager = $_GET['id'];			
-				
+				$idusager = $_GET['id'];
+
 				// Utilisation de la clause WHERE avec une requête préparée
 				// Suppression usager
 				$suppressionUsager = "DELETE FROM usager WHERE idusager = :idusager";
@@ -24,8 +21,8 @@
 				$suppressionRDV = "DELETE FROM RDV WHERE idusager = :idusager";
 				
 				// Préparation des requêtes
-				$stmtRDV = $dbco->prepare($suppressionRDV);
-				$stmtUsager = $dbco->prepare($suppressionUsager);
+				$stmtRDV = $bdd->prepare($suppressionRDV);
+				$stmtUsager = $bdd->prepare($suppressionUsager);
 				
 				// Liaison des paramètres requête suppression RDV
 				$stmtRDV->bindParam(':idusager', $idusager, PDO::PARAM_STR);

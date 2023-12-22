@@ -7,30 +7,17 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/modifierPatient.css">
 </head>
 <body>
-	<?php include 'header.php'; 
-		$nom = $_GET['nom'];
-		$prenom = $_GET['prenom'];
-	?>
-
-    <h1>Modification des informations de <?php echo $prenom ." ". $nom; ?></h1>
-
-    <?php
-		$servname = "localhost";
-		$dbname = "patientele";
-		$user = "etu1";
-		$pass = "iutinfo";
+	<?php include 'header.php';
+		require 'connexion.php';
 
 		try {
-			$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-			$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				$nom = $_GET['nom'];
 				$prenom = $_GET['prenom'];
 				$civilite = $_GET['civilite'];
 
 				$sql = "SELECT * FROM medecin WHERE Nom = :Nom AND Prenom = :Prenom AND Civilite = :Civilite";
-				$stmt = $dbco->prepare($sql);
+				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
 				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
 				$stmt->bindParam(':Civilite', $civilite, PDO::PARAM_STR);
@@ -39,6 +26,7 @@
 				$id = $medecin['Id_Medecin'];
 
 				?>
+				<h1>Modification des informations de <?php echo $prenom ." ". $nom; ?></h1>
 				<div class="form">
 					<form action="modifierMedecin.php?Id_Medecin=<?php echo $id; ?>" method="post">
 						<label for="Nom">Nom :</label>
@@ -56,13 +44,13 @@
 				
 				<?php
 			} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$id = $_POST['Id_Medecin'];
+				$id = $_GET['Id_Medecin'];
 				$nom = $_POST['Nom'];
 				$prenom = $_POST['Prenom'];
 				$civilite = $_POST['Civilite'];
 
 				$sql = "UPDATE medecin SET Nom = :Nom, Prenom = :Prenom, Civilite = :Civilite WHERE Id_Medecin = :Id_Medecin";
-				$stmt = $dbco->prepare($sql);
+				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
 				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
 				$stmt->bindParam(':Civilite', $civilite, PDO::PARAM_STR);
@@ -77,6 +65,6 @@
 			echo "Erreur : " . $e->getMessage();
 		}
 	?>
-	<!--<button onclick="window.location.href='/projetPHP2023/PHP/affichageMedecin.php'">Retour</button>-->
-	<button onclick="window.location.href='/projetPHP2023-main/PHP/affichageMedecin.php'">Retour</button>
+	<button onclick="window.location.href='/projetPHP2023/PHP/affichageMedecin.php'">Retour</button>
+	<!--<button onclick="window.location.href='/projetPHP2023-main/PHP/affichageMedecin.php'">Retour</button>-->
 </body>

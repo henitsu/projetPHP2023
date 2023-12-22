@@ -1,4 +1,5 @@
 <?php
+    // Connexion à la base de données
     $servname = "localhost";
     $dbname = "patientele";
     $user = "etu1";

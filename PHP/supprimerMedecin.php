@@ -9,12 +9,10 @@
         <h1>Supprimer un médecin
         </h1>
 		<?php
-			$servname = "localhost"; $dbname = "patientele"; $user = "etu1"; $pass = "iutinfo";
+			// Connexion à la base de données
+			require 'connexion.php';
 			
 			try {
-				$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-				$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 				// Stockage de l'identifiant du médecin
 				$id = $_GET['Id_Medecin'];	
 				$nom = $_GET['nom'];
@@ -32,9 +30,9 @@
 				$suppressionRDV = "DELETE FROM RDV WHERE Id_Medecin = :Id_Medecin";
 				
 				// Préparation des requêtes
-				$stmtUsager = $dbco->prepare($suppressionUsager);
-				$stmtRDV = $dbco->prepare($suppressionRDV);
-				$stmtMedecin = $dbco->prepare($suppressionMedecin);
+				$stmtUsager = $bdd->prepare($suppressionUsager);
+				$stmtRDV = $bdd->prepare($suppressionRDV);
+				$stmtMedecin = $bdd->prepare($suppressionMedecin);
 				
 				// Liaison des paramètres requête suppression RDV
 				$stmtRDV->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);

@@ -32,7 +32,7 @@
                 <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>
             </div>
             <div id="medecins" class="box">
-                <a href=""><h2>Médecins</h2></a>
+                <a href="/projetPHP2023/PHP/affichageMedecin.php"><h2>Médecins</h2></a>
             </div>
             <div id="consultations" class="box">
                 <a href=""><h2>Consultations</h2></a>

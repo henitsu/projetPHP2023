@@ -7,23 +7,11 @@
     <link rel="stylesheet" href="/projetPHP2023/CSS/modifierPatient.css">
 </head>
 <body>
-	<?php include 'header.php'; 
-		$nom = $_GET['nom'];
-		$prenom = $_GET['prenom'];
-	?>
+	<?php include 'header.php';
 
-    <h1>Modification des informations de <?php echo $prenom ." ". $nom; ?></h1>
-
-    <?php
-		$servname = "localhost";
-		$dbname = "patientele";
-		$user = "etu1";
-		$pass = "iutinfo";
+		require 'connexion.php';
 
 		try {
-			$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-			$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				$nom = $_GET['nom'];
 				$prenom = $_GET['prenom'];
@@ -32,8 +20,14 @@
 				$lieuNaissance = $_GET['lieuNaissance'];
 				$numSecu = $_GET['numSecu'];
 
-				$sql = "SELECT * FROM usager WHERE Nom = :Nom AND Prenom = :Prenom AND Adresse = :Adresse AND DateNaissance = :DateNaissance AND LieuNaissance = :LieuNaissance AND NumSecu = :NumSecu";
-				$stmt = $dbco->prepare($sql);
+				$sql = "SELECT * FROM usager
+					WHERE Nom = :Nom
+					AND Prenom = :Prenom
+					AND Adresse = :Adresse
+					AND DateNaissance = :DateNaissance
+					AND LieuNaissance = :LieuNaissance
+					AND NumSecu = :NumSecu";
+				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
 				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
 				$stmt->bindParam(':Adresse', $adresse, PDO::PARAM_STR);
@@ -45,6 +39,7 @@
 				$id = $usager['idusager'];
 
 				?>
+				<h1>Modification des informations de <?php echo $prenom ." ". $nom; ?></h1>
 				<div class="form">
 					<form action="modifierPatient.php?idusager=<?php echo $id; ?>" method="post">
 						<label for="Nom">Nom :</label>
@@ -71,7 +66,7 @@
 				
 				<?php
 			} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$id = $_POST['idusager'];
+				$id = $_GET['idusager'];
 				$nom = $_POST['Nom'];
 				$prenom = $_POST['Prenom'];
 				$adresse = $_POST['Adresse'];
@@ -80,7 +75,7 @@
 				$numSecu = $_POST['NumSecu'];
 
 				$sql = "UPDATE usager SET Nom = :Nom, Prenom = :Prenom, Adresse = :Adresse, DateNaissance = :DateNaissance, LieuNaissance = :LieuNaissance, NumSecu = :NumSecu WHERE idusager = :idusager";
-				$stmt = $dbco->prepare($sql);
+				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
 				$stmt->bindParam(':Prenom', $prenom, PDO::PARAM_STR);
 				$stmt->bindParam(':Adresse', $adresse, PDO::PARAM_STR);
@@ -99,5 +94,5 @@
 		}
 	?>
 	<!--<button onclick="window.location.href='/projetPHP2023/PHP/affichagePatient.php'">Retour</button>-->
-	<button onclick="window.location.href='/projetPHP2023-main/PHP/affichagePatient.php'">Retour</button>
+	<button onclick="window.location.href='/projetPHP2023/PHP/affichagePatient.php'">Retour</button>
 </body>
