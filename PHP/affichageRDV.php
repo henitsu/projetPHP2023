@@ -24,7 +24,8 @@
     }    
     
 
-    $reponse = $bdd->query("SELECT * FROM RDV");
+    $reponse = $bdd->query("SELECT Medecin.Nom, Usager.Nom FROM RDV, Usager, Medecin WHERE 
+        RDV.idusager = Usager.id_usager" AND Medecin.Id_Medecin = RDV.Id_Medecin);
     $donnees = $reponse->fetchAll();
     echo '<h2>Les consultations :</h2>';
     echo '<table border="1">';
