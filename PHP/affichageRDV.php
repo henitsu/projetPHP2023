@@ -24,8 +24,8 @@
     }    
     
 
-    $reponse = $bdd->query("SELECT Medecin.Nom, Usager.Nom FROM RDV, Usager, Medecin WHERE 
-        RDV.idusager = Usager.id_usager" AND Medecin.Id_Medecin = RDV.Id_Medecin");
+    $reponse = $bdd->query("SELECT DISTINCT Usager.Nom idusager, Medecin.Nom Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes FROM
+     RDV, Usager, Medecin WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
     $donnees = $reponse->fetchAll();
     echo '<h2>Les consultations :</h2>';
     echo '<table border="1">';
