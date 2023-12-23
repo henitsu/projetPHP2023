@@ -24,7 +24,7 @@
         <h1>Profil</h1>
         <div class="grid">
             <div id="photo">
-                <img src="/projetPHP2023/Donnees/profile-pic.jpg" alt="photo de profil">
+                <img src="https://i.pravatar.cc/85" alt="photo-profil">
             </div>
             <div id="nom" class="box">
                 <h2>Nom</h2>

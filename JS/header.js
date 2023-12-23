@@ -1,8 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var image = document.querySelector('.menuheader img');
-    var sousmenu = document.querySelector('.sousmenu');
+let card = document.querySelector(".card"); //declearing profile card element
+let displayPicture = document.querySelector(".display-picture"); //declearing profile picture
 
-    image.addEventListener('click', function() {
-        sousmenu.style.display = (sousmenu.style.display === 'block') ? 'none' : 'block';
-    });
-});
+displayPicture.addEventListener("click", function() { //on click on profile picture toggle hidden class from css
+card.classList.toggle("hidden")})

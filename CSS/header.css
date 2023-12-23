@@ -6,12 +6,6 @@ header{
     font-weight: bold;
 }
 
-img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
 header a{
     color: #fff;
     text-decoration: none;
@@ -21,29 +15,40 @@ header a:hover{
     color: #D2DEEA;
 }
 
-
-.menuheader li{
-    display: inline;
-    margin: 0 20px 0 20px;
+.display-picture{
+    margin-left: auto;
 }
 
+.display-picture img{
+    width: 50px;
+    border-radius: 50%;
+    border:2px solid #fff;
+}
+.display-picture img:hover{
+    border:2px solid #E78341;
+}
+.card{
+    transition: 0.5s ease;
+}
 
-.sousmenu {
-    display: none;
+.card ul{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background: #70cfe1;
     position: absolute;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    top: 4rem;
+    right:0rem;
+    border-radius: 10px;
+    padding: 10px 50px 10px 20px;
 }
 
-.sousmenu li {
-    padding: 12px;
-    text-align: center;
-}
+.card ul li{
 
-.menuheader img {
-    cursor: pointer;
+    padding: 5px 0;
+    color: #FFF;
+    font-size: 14px;
+}
+.hidden{
+    display: none;
 }
