@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Suppression d'un RDV</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <h1>Supprimer un RDV</h1>
+		<?php
+			$servname = "localhost"; $dbname = "patientele"; $user = "etu1"; $pass = "iutinfo";
+			
+			try {
+				$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
+				$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+				// Stockage de l'identifiant de l'usager
+				$idusager = $_GET['idusager'];	
+                $Id_Medecin = $_GET['Id_Medecin'];
+                $dateHeureRDV = $_GET['dateHeure'];		
+				
+				// Utilisation de la clause WHERE avec une requête préparée
+				// Suppression RDV
+				$suppressionRDV = "DELETE FROM RDV WHERE idusager = :idusager AND Id_Medecin = :Id_Medecin AND
+                dateHeureRDV = :dateHeureRDV";
+				
+				// Préparation des requêtes
+				$stmt = $dbco->prepare($suppressionRDV);
+				
+				// Liaison des paramètres requête suppression RDV
+				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
+                $stmt->bindParam(':Id_Medecin', $Id_Medecin, PDO::PARAM_STR);
+                $stmt->bindParam(':dateHeureRDV', $dateHeureRDV, PDO::PARAM_STR);
+
+				// Exécution des requêtes
+				$stmt->execute();
+				
+				echo "RDV du " . $dateHeureRDV . " supprimé avec succès";
+			} catch(PDOException $e) {
+				echo "Erreur : " . $e->getMessage();
+			}
+		?>
+		
+    </body>
+</html>
