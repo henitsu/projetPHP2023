@@ -14,15 +14,9 @@
     <h1>Modification du RDV du docteur <?php echo $nom_medecin; ?></h1>
 
     <?php
-		$servname = "localhost";
-		$dbname = "patientele";
-		$user = "etu1";
-		$pass = "iutinfo";
+		require 'connexionBD.php';
 
 		try {
-			$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-			$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 			if ($_SERVER["REQUEST_METHOD"] == "GET") {
 				$idusager = $_GET['idusager'];
 				$Id_Medecin = $_GET['Id_Medecin'];
@@ -34,7 +28,7 @@
 				$sql = "SELECT RDV.idusager, RDV.Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes 
                 FROM RDV, Usager, Medecin WHERE Usager.Nom = :nom_usager AND Medecin.Nom = :nom_medecin AND 
                 RDV.DateHeureRDV = :dateHeure AND RDV.DureeConsultationMinutes = :duree";
-				$stmt = $dbco->prepare($sql);
+				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':nom_usager', $nom_usager, PDO::PARAM_STR);
 				$stmt->bindParam(':nom_medecin', $nom_medecin, PDO::PARAM_STR);
 				$stmt->bindParam(':duree', $duree, PDO::PARAM_STR);

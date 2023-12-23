@@ -7,12 +7,10 @@
     <body>
         <h1>Supprimer un RDV</h1>
 		<?php
-			$servname = "localhost"; $dbname = "patientele"; $user = "etu1"; $pass = "iutinfo";
+			// Connexion à la base de données
+			require 'connexionBD.php';
 			
 			try {
-				$dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-				$dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 				// Stockage de l'identifiant de l'usager
 				$idusager = $_GET['idusager'];	
                 $Id_Medecin = $_GET['Id_Medecin'];
@@ -24,7 +22,7 @@
                 dateHeureRDV = :dateHeureRDV";
 				
 				// Préparation des requêtes
-				$stmt = $dbco->prepare($suppressionRDV);
+				$stmt = $bdd->prepare($suppressionRDV);
 				
 				// Liaison des paramètres requête suppression RDV
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
