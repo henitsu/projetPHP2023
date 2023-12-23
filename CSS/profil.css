@@ -1,0 +1,30 @@
+.grid{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #ccc;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+p{
+    text-align: center;
+    margin: auto;
+}
+
+#photo img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    position: relative;
+}

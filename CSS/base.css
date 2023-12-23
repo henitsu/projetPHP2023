@@ -5,10 +5,9 @@ body{
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #333;
-    line-height: 1.42857143;
-    margin: 0;
-    padding: 0;
     font-weight: 400;
+    line-height: 1.5;
+    margin: auto;
 }
 
 h1{

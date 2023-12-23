@@ -10,19 +10,8 @@
     <?php include 'header.php'; ?>
     <h1>Affichage des patients</h1>
     <?php
-   
-    $servname = "localhost";
-    $dbname = "patientele";
-    $user = "etu1";
-    $pass = "iutinfo";
-    
-    try {
-        $bdd = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-    }
-    catch (Exception $e) {
-        die('Erreur de connexion à la base de données :: ' . $e->getMessage());
-    }    
-    
+    // Connexion à la base de données
+    require 'connexionBD.php';
 
     $reponse = $bdd->query("SELECT * FROM usager");
     $donnees = $reponse->fetchAll();
