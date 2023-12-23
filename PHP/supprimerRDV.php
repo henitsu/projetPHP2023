@@ -19,7 +19,7 @@
 				// Utilisation de la clause WHERE avec une requête préparée
 				// Suppression RDV
 				$suppressionRDV = "DELETE FROM RDV WHERE idusager = :idusager AND Id_Medecin = :Id_Medecin AND
-                dateHeureRDV = :dateHeureRDV";
+                dateHeureRDV = :DateHeureRDV";
 				
 				// Préparation des requêtes
 				$stmt = $bdd->prepare($suppressionRDV);
@@ -27,7 +27,7 @@
 				// Liaison des paramètres requête suppression RDV
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
                 $stmt->bindParam(':Id_Medecin', $Id_Medecin, PDO::PARAM_STR);
-                $stmt->bindParam(':dateHeureRDV', $dateHeureRDV, PDO::PARAM_STR);
+                $stmt->bindParam(':DateHeureRDV', $dateHeureRDV, PDO::PARAM_STR);
 
 				// Exécution des requêtes
 				$stmt->execute();

@@ -48,7 +48,7 @@
 						<label for="Prenom">Prénom :</label>
 						<input type="text" id="prenom" name="Prenom" value="<?php echo $usager['Prenom']; ?>" required><br>
 
-						<label for="1dresse">Adresse :</label>
+						<label for="Adresse">Adresse :</label>
 						<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
 
 						<label for="DateNaissance">Date naissance :</label>

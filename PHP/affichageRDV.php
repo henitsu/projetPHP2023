@@ -13,24 +13,28 @@
 
     require 'connexionBD.php';
 
-    $reponse = $bdd->query("SELECT DISTINCT Usager.Nom idusager, Medecin.Nom Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes FROM
-     RDV, Usager, Medecin WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
+    $reponse = $bdd->query(
+        "SELECT DISTINCT Usager.idusager idusager, Usager.Nom nom_usager, Medecin.Id_Medecin Id_Medecin, Medecin.Nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
+        FROM RDV, Usager, Medecin
+        WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
     $donnees = $reponse->fetchAll();
     echo '<h2>Les consultations :</h2>';
     echo '<table border="1">';
-    echo '<tr><th>ID Médecin (plutôt le nom ?)</th><th>ID Usager (idem : nom ?)</th><th>Date/heure</th><th>Durée (en minutes)</th></tr>';
+    echo '<tr><th>ID Médecin</th><th>Nom médecin</th><th>ID Patient</th><th>Nom patient</th><th>Date/heure</th><th>Durée (en minutes)</th></tr>';
 
     foreach ($donnees as $donnee) {
         // Affiche les résultats
         
         echo '<tr>';
         echo '<td>' . $donnee['idusager'] . '</td>';
+        echo '<td>' . $donnee['nom_usager'] . '</td>';
         echo '<td>' . $donnee['Id_Medecin'] . '</td>';
+        echo '<td>' . $donnee['nom_medecin'] . '</td>';
         echo '<td>' . $donnee['DateHeureRDV'] . '</td>';
         echo '<td>' . $donnee['DureeConsultationMinutes'] . '</td>';
-        echo '<td><a href="modifierRDV.php?idusager=' . $donnee['idusager'] . '&Id_Medecin=' . $donnee['Id_Medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
+        echo '<td><a href="modifierRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Modifier</a> | 
-        <a href="supprimerRDV.php?idusager=' . $donnee['idusager'] . '&Id_Medecin=' . $donnee['Id_Medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
+        <a href="supprimerRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Supprimer</a></td>';
         echo '</tr>';
         
