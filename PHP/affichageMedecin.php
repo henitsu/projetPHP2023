@@ -9,6 +9,9 @@
 <body>
     <?php include 'header.php'; ?>
     <h1>Affichage des médecins</h1>
+    <div class="creer">
+        Ajouter un nouveau médecin : <a href="/projetPHP2023/PHP/creationMedecin.php">Ajouter</a>
+    </div>
     <?php
     // Connexion à la base de données
     require 'connexionBD.php';

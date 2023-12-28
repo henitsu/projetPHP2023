@@ -32,7 +32,7 @@
         <h1>Bienvenue <?php echo $prenom . " " . $nom; ?> !</h1>
         <div class="grid">
             <div id="usagers" class="box">
-                <a href="/projetPHP2023/PHP/affichage.php"><h2>Usagers</h2></a>
+                <a href="/projetPHP2023/PHP/affichagePatient.php"><h2>Usagers</h2></a>
             </div>
             <div id="medecins" class="box">
                 <a href="/projetPHP2023/PHP/affichageMedecin.php"><h2>Médecins</h2></a>
