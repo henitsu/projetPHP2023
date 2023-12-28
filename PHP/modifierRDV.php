@@ -36,21 +36,20 @@
 				<div class="form">
 					<form action="modifierRDV.php?idusager=<?php echo $idusager;?>&Id_Medecin=<?php echo $Id_Medecin ?>" method="post">
 						<label for="nom_medecin">Nom médecin :</label>
-						<select>
+						<select name="nom_medecin">
 							<?php 
-								echo "coucou";
 								$requete = "SELECT nom FROM Medecin ORDER BY nom";
 								$statement = $bdd->prepare($requete);
 								$statement->execute();
 								$medecins = $statement->fetchAll(PDO::FETCH_ASSOC);
 								foreach ($medecins as $medecin) {
-									if (strcmp($nom_medecin, $medecin['nom'])==0) {
+									if (strcmp($nom_medecin, $medecin['nom']) == 0) {
 										echo "<option value='" . $medecin['nom'] . "' selected>" . $medecin['nom'] . "</option>";
 									}
 									else {
 										echo "<option value='" . $medecin['nom'] . "'>" . $medecin['nom'] . "</option>";
 									}
-								}	
+								}
 							?>						
 						</select>
 						<br><br>
@@ -75,12 +74,20 @@
                 $dateHeure = $_POST["dateHeure"];
 				$idusager = $_GET['idusager'];
 				$Id_Medecin = $_GET['Id_Medecin'];
+				$nom_medecin = $_POST['nom_medecin'];
 
-                $sql = "UPDATE RDV SET idusager = :idusager, Id_Medecin = :Id_Medecin, dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager and Id_Medecin = :Id_Medecin";
+				$req_id_medecin = "SELECT Id_Medecin FROM Medecin WHERE Nom = :nom_medecin";
+				$etat = $bdd->prepare($req_id_medecin);
+				$etat->bindParam(':nom_medecin', $nom_medecin, PDO::PARAM_STR);
+				$etat->execute();
+				$ids = $etat->fetch(PDO::FETCH_ASSOC);
+				$id = $ids['Id_Medecin'];
+
+                $sql = "UPDATE RDV SET Id_Medecin = :Id_Medecin, dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
                 
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
-				$stmt->bindParam(':Id_Medecin', $Id_Medecin, PDO::PARAM_STR);
+				$stmt->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
 				$stmt->bindParam(':dureeConsultationMinutes', $duree, PDO::PARAM_STR);
                 $stmt->bindParam(':dateHeureRDV', $dateHeure, PDO::PARAM_STR);
 				$stmt->execute();
