@@ -93,6 +93,5 @@
 			echo "Erreur : " . $e->getMessage();
 		}
 	?>
-	<!--<button onclick="window.location.href='/projetPHP2023/PHP/affichagePatient.php'">Retour</button>-->
 	<button onclick="window.location.href='/projetPHP2023/PHP/affichagePatient.php'">Retour</button>
 </body>

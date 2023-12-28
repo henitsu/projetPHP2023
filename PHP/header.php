@@ -5,10 +5,8 @@
 <!DOCTYPE html>
 <html lang="fr">
     <link rel="stylesheet" href="/projetPHP2023/CSS/header.css">
-    <script src="/projetPHP2023/JS/header.js"></script>
 <body>
     <header>
-        <nav>
         <ul class="menuheader">
             <li><a href="/projetPHP2023/PHP/menu.php">Menu principal</a></li>
             <li><a href="/projetPHP2023/PHP/affichagePatient.php">Usagers</a></li>
@@ -23,7 +21,6 @@
                 <li><a href="/projetPHP2023/PHP/deconnexion.php">Se déconnecter</a></li>
             </ul>
         </div>
-        </nav>
     </header>
     <script src="/projetPHP2023/JS/header.js"></script>
 </body>

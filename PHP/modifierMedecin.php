@@ -66,5 +66,4 @@
 		}
 	?>
 	<button onclick="window.location.href='/projetPHP2023/PHP/affichageMedecin.php'">Retour</button>
-	<!--<button onclick="window.location.href='/projetPHP2023-main/PHP/affichageMedecin.php'">Retour</button>-->
 </body>

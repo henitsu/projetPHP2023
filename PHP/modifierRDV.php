@@ -77,6 +77,5 @@
 			echo "Erreur : " . $e->getMessage();
 		}
 	?>
-	<!--<button onclick="window.location.href='/projetPHP2023/PHP/affichageRDV.php'">Retour</button>-->
-	<button onclick="window.location.href='/projetPHP2023-main/PHP/affichageRDV.php'">Retour</button>
+	<button onclick="window.location.href='/projetPHP2023/PHP/affichageRDV.php'">Retour</button>
 </body>
