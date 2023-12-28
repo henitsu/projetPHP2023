@@ -11,7 +11,7 @@
         private $idMedecin;
 
         // Constructeur
-        public function __construct($civilite, $nom, $prenom, $adresse, $dateNaissance, $lieuNaissance, $numSecu, $idMedecin = null){
+        public function __construct($civilite, $nom, $prenom, $adresse, $dateNaissance, $lieuNaissance, $numSecu, $idMedecin){
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->civilite = $civilite;

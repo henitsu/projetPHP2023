@@ -6,19 +6,23 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // Création d'un nouveau patient
-        $patient = new Patient($_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['adresse'], $_POST['dateNaissance'], $_POST['lieuNaissance'], $_POST['numSecu'], $_POST['idMedecin']);
+        $patient = new Patient($_POST['civilite'], $_POST['nom'], $_POST['prenom'],
+            $_POST['adresse'], $_POST['dateNaissance'], $_POST['lieuNaissance'],
+            $_POST['numSecu'], $_POST['idMedecin']);
         $civilite = $patient->getCivilite();
         $nom = $patient->getNom();
         $prenom = $patient->getPrenom();
         $adresse = $patient->getAdresse();
-        $dateNaissance = $patient->getDateNaissance();
+        $dateNaissance = date('d/m/Y', strtotime($patient->getDateNaissance()));
         $lieuNaissance = $patient->getLieuNaissance();
         $numSecu = $patient->getNumSecu();
         $idMedecin = $patient->getIdMedecin();
 
         // Ajout du patient dans la BD
         try{
-            $sql = "INSERT INTO patient(Civilite, Nom, Prenom, Adresse, DateNaissance, LieuNaissance, NumSecu, Id_Medecin) VALUES(:Civilite, :Nom, :Prenom, :Adresse, :DateNaissance, :LieuNaissance, :NumSecu, :Id_Medecin)";
+            $sql = "INSERT INTO Usager
+                (Civilite, Nom, Prenom, Adresse, DateNaissance, LieuNaissance, NumSecu, Id_Medecin)
+                VALUES(:Civilite, :Nom, :Prenom, :Adresse, :DateNaissance, :LieuNaissance, :NumSecu, :Id_Medecin)";
             $stmt = $bdd->prepare($sql);
             $stmt->bindParam(':Civilite', $civilite, PDO::PARAM_STR);
             $stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
@@ -28,6 +32,8 @@
             $stmt->bindParam(':LieuNaissance', $lieuNaissance, PDO::PARAM_STR);
             $stmt->bindParam(':NumSecu', $numSecu, PDO::PARAM_STR);
             $stmt->bindParam(':Id_Medecin', $idMedecin, PDO::PARAM_INT);
+            $stmt->execute();
+            
 
             echo 'Le patient a bien été créé !';
 
@@ -91,7 +97,7 @@
 
                         // Affichage des médecins
                         foreach($medecins as $medecin){
-                            echo '<option value="'.$medecin['IdMedecin'].'">'.$medecin['Nom'].' '.$medecin['Prenom'].'</option>';
+                            echo '<option value="'.$medecin['Id_Medecin'].'">'.$medecin['Nom'].' '.$medecin['Prenom'].'</option>';
                         }
                     ?>
             </p>
