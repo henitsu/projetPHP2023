@@ -26,8 +26,8 @@
         // Affiche les résultats
         
         echo '<tr>';
-        echo '<td>' . $donnee['nom_usager'] . '</td>';
         echo '<td>' . $donnee['nom_medecin'] . '</td>';
+        echo '<td>' . $donnee['nom_usager'] . '</td>';
         echo '<td>' . $donnee['DateHeureRDV'] . '</td>';
         echo '<td>' . $donnee['DureeConsultationMinutes'] . '</td>';
         echo '<td><a href="modifierRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 

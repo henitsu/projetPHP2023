@@ -19,7 +19,7 @@
 
 				$sql = "SELECT RDV.idusager, RDV.Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes 
                 FROM RDV, Usager, Medecin WHERE Usager.Nom = :nom_usager AND Medecin.Nom = :nom_medecin AND 
-                RDV.DateHeureRDV = :dateHeure AND RDV.DureeConsultationMinutes = :duree";
+                RDV.DateHeureRDV = :dateHeure AND RDV.DureeConsultationMinutes = :duree ORDER BY RDV.DateHeureRDV";
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':nom_usager', $nom_usager, PDO::PARAM_STR);
 				$stmt->bindParam(':nom_medecin', $nom_medecin, PDO::PARAM_STR);
@@ -36,15 +36,32 @@
 				<div class="form">
 					<form action="modifierRDV.php?idusager=<?php echo $idusager;?>&Id_Medecin=<?php echo $Id_Medecin ?>" method="post">
 						<label for="nom_medecin">Nom médecin :</label>
-                        
-						<input type="text" id="nom_medecin" value="<?php echo $nom_medecin; ?>" name="nom_medecin"><br>
+						<select>
+							<?php 
+								echo "coucou";
+								$requete = "SELECT nom FROM Medecin ORDER BY nom";
+								$statement = $bdd->prepare($requete);
+								$statement->execute();
+								$medecins = $statement->fetchAll(PDO::FETCH_ASSOC);
+								foreach ($medecins as $medecin) {
+									if (strcmp($nom_medecin, $medecin['nom'])==0) {
+										echo "<option value='" . $medecin['nom'] . "' selected>" . $medecin['nom'] . "</option>";
+									}
+									else {
+										echo "<option value='" . $medecin['nom'] . "'>" . $medecin['nom'] . "</option>";
+									}
+								}	
+							?>						
+						</select>
+						<br><br>
 
 						<label for="nom_usager">Nom usager :</label>
 						<input type="text" id="nom_usager" name="nom_usager" value="<?php echo $nom_usager; ?>" required><br>
 
 						<label for="dateHeure">Date heure :</label>
-						<input type="text" id="dateHeure" name="dateHeure" value="<?php echo $rdv['DateHeureRDV']; ?>" required><br>
-                        
+						<input type="datetime-local" id="dateHeure" name="dateHeure" value="<?php echo $rdv['DateHeureRDV']; ?>" required><br>
+                        <br><br>
+
                         <label for="duree">Durée :</label>
 						<input type="text" id="duree" name="duree" value="<?php echo $rdv['DureeConsultationMinutes']; ?>" required><br>
 
