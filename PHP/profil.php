@@ -16,28 +16,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Profil</title>
-    <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
+    <!--<link rel="stylesheet" href="/projetPHP2023/CSS/base.css">-->
     <link rel="stylesheet" href="/projetPHP2023/CSS/profil.css">
 </head>
 <body>
     <main>
         <h1>Profil</h1>
-        <div class="grid">
+        <div class="profil">
             <div id="photo">
                 <img src="https://i.pravatar.cc/85" alt="photo-profil">
             </div>
-            <div id="nom" class="box">
-                <h2>Nom</h2>
-                <p><?php echo $secretaire['Nom']; ?></p>
-            </div>
-            <div id="prenom" class="box">
-                <h2>Prénom</h2>
-                <p><?php echo $secretaire['Prenom']; ?></p>
-            </div>
-            <div id="login" class="box">
-                <h2>Login</h2>
-                <p><?php echo $secretaire['Login']; ?></p>
+            <div class="box">
+                <ul>
+                    <li>
+                        <h2>Nom</h2>
+                        <p><?php echo $secretaire['Nom']; ?></p>
+                    </li>
+                    <li>
+                        <h2>Prénom</h2>
+                        <p><?php echo $secretaire['Prenom']; ?></p>
+                    </li>
+                    <li>
+                        <h2>Login</h2>
+                        <p><?php echo $secretaire['Login']; ?></p>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>
-</body>
+</body>  

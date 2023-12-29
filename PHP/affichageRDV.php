@@ -9,6 +9,9 @@
 <body>
     <?php include 'header.php'; ?>
     <h1>Affichage des consultations</h1>
+    <div class="creer">
+        Ajouter une nouvelle consultation : <a href="/projetPHP2023/PHP/creationRDV.php">Ajouter</a>
+    </div>
     <?php
 
     require 'connexionBD.php';

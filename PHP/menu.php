@@ -38,7 +38,7 @@
                 <a href="/projetPHP2023/PHP/affichageMedecin.php"><h2>Médecins</h2></a>
             </div>
             <div id="consultations" class="box">
-                <a href=""><h2>Consultations</h2></a>
+                <a href="/projetPHP2023/PHP/affichageRDV.php"><h2>Consultations</h2></a>
             </div>
             <div id="statistiques" class="box">
                 <a href=""><h2>Statistiques</h2></a>
