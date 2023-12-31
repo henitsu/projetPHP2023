@@ -27,7 +27,7 @@
                 <img src="https://i.pravatar.cc/85" alt="photo-profil">
             </div>
             <div class="box">
-                <ul>
+                <ul class="inner-box">
                     <li>
                         <h2>Nom</h2>
                         <p><?php echo $secretaire['Nom']; ?></p>

@@ -36,4 +36,5 @@ a:hover {
     background-color: #70CFE1;
     border-radius: 5px;
     text-align: center;
+    width: fit-content;
 }
