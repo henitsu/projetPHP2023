@@ -16,7 +16,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Profil</title>
-    <!--<link rel="stylesheet" href="/projetPHP2023/CSS/base.css">-->
+    <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
+    <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/profil.css">
 </head>
 <body>

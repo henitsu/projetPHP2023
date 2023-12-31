@@ -48,6 +48,7 @@
     <head>
         <meta charset="utf-8">
         <title>Création d'un patient</title>
+        <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
         <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
     </head>
     <body>

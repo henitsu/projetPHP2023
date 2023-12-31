@@ -35,11 +35,12 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Création d'un patient</title>
+    <title>Création d'une consultation</title>
+    <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
 </head>
 <body>
-    <h1>Création d'un rendez-vous</h1>
+    <h1>Création d'une consultation</h1>
         <form method="POST" action="creationRDV.php">
             <p>
                 <label for="patient">Patient:</label>

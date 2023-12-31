@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
+    <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
     <link rel="stylesheet" href="/projetPHP2023/CSS/menu.css">
 </head>

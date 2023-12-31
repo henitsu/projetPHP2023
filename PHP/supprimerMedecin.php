@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Suppression d'un médecin
-        </title>
+        <title>Suppression d'un médecin</title>
+		<link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
         <meta charset='utf-8'>
     </head>
     <body>
