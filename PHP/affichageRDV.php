@@ -17,12 +17,47 @@
 
     require 'connexionBD.php';
 
-    $reponse = $bdd->query(
-        "SELECT DISTINCT Usager.idusager idusager, Usager.Nom nom_usager, Medecin.Id_Medecin Id_Medecin, Medecin.Nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
-        FROM RDV, Usager, Medecin
-        WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
-    $donnees = $reponse->fetchAll();
     echo '<h2>Les consultations :</h2>';
+
+    $reponseTri = $bdd->query("SELECT DISTINCT Nom FROM Medecin");
+    $medecins = $reponseTri->fetchAll();
+    echo '<form action="affichageRDV.php" method="post">';
+    echo '<label for="medecin">Trier par médecin : </label>';
+    echo '<select name="medecin" id="medecin">';
+    echo '<option value="tous">Tous</option>';
+    foreach ($medecins as $medecin) {
+        echo '<option value="' . $medecin['Nom'] . '">' . $medecin['Nom'] . '</option>';
+    }
+    echo '</select>';
+    echo '<input type="submit" value="Trier">';
+    echo '</form>';
+
+    $donnees = array();
+    if (isset($_POST['medecin'])) {
+        if ($_POST['medecin'] != 'tous') {
+            $reponse = $bdd->query(
+                "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
+                FROM RDV, Usager, Medecin
+                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin AND Medecin.Nom = '" . $_POST['medecin'] . "'");
+            $donnees = $reponse->fetchAll();
+        }
+        else {
+            $reponse = $bdd->query(
+                "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
+                FROM RDV, Usager, Medecin
+                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
+            $donnees = $reponse->fetchAll();
+        }
+    } 
+    else {
+        $reponse = $bdd->query(
+            "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
+            FROM RDV, Usager, Medecin
+            WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
+        $donnees = $reponse->fetchAll();
+    }
+    
+    
     echo '<table border="1">';
     echo '<tr><th>Nom médecin</th><th>Nom patient</th><th>Date/heure</th><th>Durée (en minutes)</th></tr>';
 
