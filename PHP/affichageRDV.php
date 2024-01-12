@@ -38,7 +38,8 @@
             $reponse = $bdd->query(
                 "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
                 FROM RDV, Usager, Medecin
-                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin AND Medecin.Nom = '" . $_POST['medecin'] . "'");
+                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin AND Medecin.Nom = '" . $_POST['medecin'] . "'
+                ORDER BY 2, 3");
             $donnees = $reponse->fetchAll();
         }
         else {
@@ -59,7 +60,7 @@
     
     
     echo '<table border="1">';
-    echo '<tr><th>Nom médecin</th><th>Nom patient</th><th>Date/heure</th><th>Durée (en minutes)</th></tr>';
+    echo '<tr><th>Nom médecin</th><th>Nom patient</th><th>Date/heure</th><th>Durée (en minutes)</th><th>Action</th></tr>';
 
     foreach ($donnees as $donnee) {
         // Affiche les résultats

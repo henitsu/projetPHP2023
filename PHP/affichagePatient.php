@@ -21,7 +21,7 @@
     $donnees = $reponse->fetchAll();
     echo '<h2>La patientèle :</h2>';
     echo '<table border="1">';
-    echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Date naissance</th><th>Lieu naissance</th><th>Numéro sécurité sociale</th></tr>';
+    echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Date naissance</th><th>Lieu naissance</th><th>Numéro sécurité sociale</th><th>Action</th></tr>';
 
     foreach ($donnees as $donnee) {
         // Affiche les résultats

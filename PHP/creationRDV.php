@@ -14,6 +14,21 @@
 
         // Ajout du rdv dans la BD
         try{
+
+            $sql_trigger_rdv = "
+                CREATE OR REPLACE TRIGGER rdv_avant_insert BEFORE INSERT ON RDV
+                FOR EACH ROW
+                BEGIN
+                    IF (SELECT COUNT(*) FROM RDV WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV = NEW.DateHeureRDV) > 0 THEN
+                        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ce médecin a déjà un rendez-vous à cette date et heure';
+                    END IF;
+                    IF (SELECT COUNT(*) FROM RDV WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV + DureeConsultationMinutes < NEW.DateHeureRDV + NEW.DureeConsultationMinutes) > 0 THEN
+                        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Ce médécin sera encore en consultation à cette date et heure';
+                    END IF;
+                END";
+            
+            $bdd->exec($sql_trigger_rdv);
+
             $sql = "INSERT INTO RDV (idusager, Id_Medecin, DateHeureRDV, DureeConsultationMinutes)
             VALUES(:idusager, :Id_Medecin, :DateHeureRDV, :DureeConsultationMinutes)";
 
@@ -25,6 +40,8 @@
             $stmt->execute();
 
             echo 'Le RDV a bien été créé !';
+
+
 
         } catch(Exception $e){
             echo 'Erreur : '.$e->getMessage();
@@ -60,7 +77,7 @@
                 </select>
             </p>
             <p>
-                <label for="medecin">Médecin:</label>
+                <label for="medecin">Médecin :</label>
                 <select name="medecin" id="medecin">
                     <?php
                         // Récupération des médecins
