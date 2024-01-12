@@ -34,8 +34,12 @@
             $stmt->bindParam(':Id_Medecin', $idMedecin, PDO::PARAM_INT);
             $stmt->execute();
             
+            // Stocker le message dans la variable de session
+            $_SESSION['message'] = 'Le patient a bien été créé !';
 
-            echo 'Le patient a bien été créé !';
+            // Redirection vers la page d'affichage des médecins
+            header('Location: /projetPHP2023/PHP/affichagePatient.php');
+            exit();
 
         } catch(Exception $e){
             echo 'Erreur : '.$e->getMessage();
@@ -50,7 +54,7 @@
         <title>Création d'un patient</title>
         <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
         <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
-        <link rel="stylesheet" href="/projetPHP2023/CSS/modifier.css">
+        <link rel="stylesheet" href="/projetPHP2023/CSS/creation.css">
     </head>
     <body>
         <h1>Création d'un patient</h1>

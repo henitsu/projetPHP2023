@@ -53,7 +53,7 @@
 						<input type="text" id="adresse" name="Adresse" value="<?php echo $usager['Adresse']; ?>" required><br>
 
 						<label for="DateNaissance">Date naissance :</label>
-						<input type="text" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
+						<input type="date" id="dateNaissance" name="DateNaissance" value="<?php echo $usager['DateNaissance']; ?>" required><br>
 
 						<label for="LieuNaissance">Lieu naissance :</label>
 						<input type="text" id="lieuNaissance" name="LieuNaissance" value="<?php echo $usager['LieuNaissance']; ?>" required><br>

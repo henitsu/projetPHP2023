@@ -17,6 +17,13 @@
 
     require 'connexionBD.php';
 
+    // Vérifier s'il y a un message dans la variable de session
+    if(isset($_SESSION['message'])){
+        echo '<p>' . $_SESSION['message'] . '</p>';
+        // Supprimer le message de la variable de session pour éviter qu'il ne soit affiché à chaque chargement de la page
+        unset($_SESSION['message']);
+    }
+
     echo '<h2>Les consultations :</h2>';
 
     $reponseTri = $bdd->query("SELECT DISTINCT Nom FROM Medecin");

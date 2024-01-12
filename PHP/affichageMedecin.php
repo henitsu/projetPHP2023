@@ -16,6 +16,13 @@
     <?php
     // Connexion à la base de données
     require 'connexionBD.php';
+    
+    // Vérifier s'il y a un message dans la variable de session
+    if(isset($_SESSION['message'])){
+        echo '<p>' . $_SESSION['message'] . '</p>';
+        // Supprimer le message de la variable de session pour éviter qu'il ne soit affiché à chaque chargement de la page
+        unset($_SESSION['message']);
+    }
 
     $reponse = $bdd->query("SELECT * FROM medecin");
     $donnees = $reponse->fetchAll();

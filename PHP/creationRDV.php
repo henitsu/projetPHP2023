@@ -39,9 +39,12 @@
             $stmt->bindParam(':DureeConsultationMinutes', $duree, PDO::PARAM_INT);
             $stmt->execute();
 
-            echo 'Le RDV a bien été créé !';
+            // Stocker le message dans la variable de session
+            $_SESSION['message'] = 'Le rendez-vous a bien été créé !';
 
-
+            // Redirection vers la page d'affichage des médecins
+            header('Location: /projetPHP2023/PHP/affichageRDV.php');
+            exit();
 
         } catch(Exception $e){
             echo 'Erreur : '.$e->getMessage();
@@ -55,7 +58,7 @@
     <title>Création d'une consultation</title>
     <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
     <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
-    <link rel="stylesheet" href="/projetPHP2023/CSS/modifier.css">
+    <link rel="stylesheet" href="/projetPHP2023/CSS/creation.css">
 </head>
 <body>
     <h1>Création d'une consultation</h1>
