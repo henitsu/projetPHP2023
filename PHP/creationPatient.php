@@ -50,6 +50,7 @@
         <title>Création d'un patient</title>
         <link rel="shortcut icon" href="/projetPHP2023/Donnees/patientele_icon.ico" />
         <link rel="stylesheet" href="/projetPHP2023/CSS/base.css">
+        <link rel="stylesheet" href="/projetPHP2023/CSS/modifier.css">
     </head>
     <body>
         <h1>Création d'un patient</h1>
