@@ -19,7 +19,7 @@ CREATE TABLE Usager(
    Nom VARCHAR(50),
    Prenom VARCHAR(50),
    Adresse VARCHAR(50),
-   DateNaissance VARCHAR(50),
+   DateNaissance DATE,
    LieuNaissance VARCHAR(50),
    NumSecu VARCHAR(50),
    Id_Medecin INT NOT NULL,
@@ -56,12 +56,12 @@ INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', '
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('3', 'M', 'Dujardin', 'Jean');
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('4', 'Mme', 'Dujour', 'Marine');
 
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('1', 'M', 'Briard', 'Bernard', 'adresse Bernard Briard', '10/10/2000', 'Toulouse', 'A1234567890', '1');
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('2', 'M', 'Degeois', 'Alexis', 'adresse Alexis Degeois', '11/11/2000', 'Paris', 'B1234567890', '2');
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('3', 'M', 'Meunier', 'Samuel', 'adresse Samuel Meunier', '12/12/2000', 'Nice', 'C1234567890', '3');
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('4', 'Mme', 'Laroche', 'Johana', 'adresse Johana Laroche', '1/1/2000', 'Paris', 'D1234567890', '4');
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('5', 'Mme', 'Lemaire', 'Kathie', 'adresse Kathie Lemaire', '2/02/2000', 'Agen', 'E1234567890', '1');
-INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('6', 'Mme', 'Meyer', 'Sarah', 'adresse Sarah Meyer', '09/09/2000', 'Brest', 'F1234567890', '2');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('1', 'M', 'Briard', 'Bernard', 'adresse Bernard Briard', '1966-10-10', 'Toulouse', 'A1234567890', '1');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('2', 'M', 'Degeois', 'Alexis', 'adresse Alexis Degeois', '2000-11-11', 'Paris', 'B1234567890', '2');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('3', 'M', 'Meunier', 'Samuel', 'adresse Samuel Meunier', '1989-12-12', 'Nice', 'C1234567890', '3');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('4', 'Mme', 'Laroche', 'Johana', 'adresse Johana Laroche', '1980-01-01', 'Paris', 'D1234567890', '4');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('5', 'Mme', 'Lemaire', 'Kathie', 'adresse Kathie Lemaire', '2000-02-02', 'Agen', 'E1234567890', '1');
+INSERT INTO `usager` (`idusager`, `Civilite`, `Nom`, `Prenom`, `Adresse`, `DateNaissance`, `LieuNaissance`, `NumSecu`, `Id_Medecin`) VALUES ('6', 'Mme', 'Meyer', 'Sarah', 'adresse Sarah Meyer', '1989-09-09', 'Brest', 'F1234567890', '2');
 
 INSERT INTO `rdv` (`idusager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('1', '1', '2024-12-18 14:00:00', '30');
 INSERT INTO `rdv` (`idusager`, `Id_Medecin`, `DateHeureRDV`, `DureeConsultationMinutes`) VALUES ('2', '2', '2024-02-21 08:00:00', '60');
