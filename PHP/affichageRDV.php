@@ -11,7 +11,7 @@
     <?php include 'header.php'; ?>
     <h1>Affichage des consultations</h1>
     <div class="creer">
-        Ajouter une nouvelle consultation : <a href="/projetPHP2023/PHP/creationRDV.php">Ajouter</a>
+        Ajouter une nouvelle consultation : <strong><a href="/projetPHP2023/PHP/creationRDV.php">Ajouter</a></strong>
     </div>
     <?php
 
@@ -23,8 +23,6 @@
         // Supprimer le message de la variable de session pour éviter qu'il ne soit affiché à chaque chargement de la page
         unset($_SESSION['message']);
     }
-
-    echo '<h2>Les consultations :</h2>';
 
     $reponseTri = $bdd->query("SELECT DISTINCT Nom FROM Medecin");
     $medecins = $reponseTri->fetchAll();

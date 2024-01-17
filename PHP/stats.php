@@ -37,29 +37,29 @@
         "
         <table>
             <tr>
-                <td>
+                <td class='creer'>
                     Tranche d'âge
                 </td>
-                <td>
+                <td class='creer'>
                     Nombre de femmes
                 </td>
-                <td>
+                <td class='creer'>
                     Nombre d'hommes
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style='background-color: #D2DEEA'>
                     Moins de 25 ans
                 </td>
                 <td>
                     ". $nbFemmesMoins25Ans[0]['NbFemmes'] . "
                 </td>
                 <td>
-                    ". $nbHommesMoins25Ans[0][0] . "
+                    ". $nbHommesMoins25Ans[0]['NbHommes'] . "
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style='background-color: #D2DEEA'>
                     Entre 25 ans et 50 ans
                 </td>
                 <td>
@@ -70,7 +70,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style='background-color: #D2DEEA'>
                     Plus de 50 ans
                 </td>
                 <td>

@@ -109,4 +109,6 @@
                 <input type="submit" value="Créer le rendez-vous">
             </p> 
         </form>
-</body>
+        <button onclick="window.location.href='/projetPHP2023/PHP/affichageRDV.php'">Retour</button>
+    </body>
+</html>

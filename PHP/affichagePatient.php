@@ -11,7 +11,7 @@
     <?php include 'header.php'; ?>
     <h1>Affichage des patients</h1>
     <div class="creer">
-        Ajouter un nouveau patient : <a href="/projetPHP2023/PHP/creationPatient.php">Ajouter</a>
+        Ajouter un nouveau patient : <strong><a href="/projetPHP2023/PHP/creationPatient.php">Ajouter</a></strong>
     </div>
     <?php
     // Connexion à la base de données
@@ -26,7 +26,6 @@
 
     $reponse = $bdd->query("SELECT * FROM usager");
     $donnees = $reponse->fetchAll();
-    echo '<h2>La patientèle :</h2>';
     echo '<table border="1">';
     echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Adresse</th><th>Date naissance</th><th>Lieu naissance</th><th>Numéro sécurité sociale</th><th>Action</th></tr>';
 

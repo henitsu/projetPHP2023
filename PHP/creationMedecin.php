@@ -65,4 +65,7 @@
                 <input type="submit" value="Créer le médecin">
             </p>
         </form>
+        <button onclick="window.location.href='/projetPHP2023/PHP/affichageMedecin.php'">Retour</button>
     </body>
+    
+</html>

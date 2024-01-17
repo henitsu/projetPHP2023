@@ -11,7 +11,7 @@
     <?php include 'header.php'; ?>
     <h1>Affichage des médecins</h1>
     <div class="creer">
-        Ajouter un nouveau médecin : <a href="/projetPHP2023/PHP/creationMedecin.php">Ajouter</a>
+        Ajouter un nouveau médecin : <strong><a href="/projetPHP2023/PHP/creationMedecin.php">Ajouter</a></strong>
     </div>
     <?php
     // Connexion à la base de données
@@ -26,7 +26,6 @@
 
     $reponse = $bdd->query("SELECT * FROM medecin");
     $donnees = $reponse->fetchAll();
-    echo '<h2>Les médecins :</h2>';
     echo '<table border="1">';
     echo '<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Civilité</th><th>Action</th></tr>';
 
