@@ -38,3 +38,7 @@ a:hover {
     text-align: center;
     width: fit-content;
 }
+
+.stats {
+    margin-left: 50px;
+}
