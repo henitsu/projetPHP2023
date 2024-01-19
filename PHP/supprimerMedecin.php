@@ -12,6 +12,7 @@
 		<?php
 			// Connexion à la base de données
 			require 'connexionBD.php';
+			include 'header.php';
 			
 			try {
 				// Stockage de l'identifiant du médecin
@@ -19,42 +20,37 @@
 				$nom = $_GET['nom'];
 				$prenom = $_GET['prenom'];		
 				
-				// Utilisation de la clause WHERE avec une requête préparée
+				// Si le médecin n'est pas référent d'un usager, on peut le supprimer
+				try {
+					// Suppression medecin
+					$suppressionMedecin = "DELETE FROM medecin WHERE Id_Medecin = :Id_Medecin";
+					
+					// Suppression RDV
+					$suppressionRDV = "DELETE FROM rdv WHERE Id_Medecin = :Id_Medecin";
 
-				// On attribut null à l'Id_Medecin (médecin référent) de l'usager
-				$suppressionUsager = "UPDATE usager SET Id_Medecin = null WHERE Id_Medecin = :Id_Medecin";
+					$stmtRDV = $bdd->prepare($suppressionRDV);
+					$stmtMedecin = $bdd->prepare($suppressionMedecin);
+					
+					$stmtMedecin->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
+					$stmtRDV->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
 
-				// Suppression medecin
-				$suppressionMedecin = "DELETE FROM medecin WHERE Id_Medecin = :Id_Medecin";
-				
-				// Suppression RDV
-				$suppressionRDV = "DELETE FROM rdv WHERE Id_Medecin = :Id_Medecin";
-				
-				// Préparation des requêtes
-				$stmtUsager = $bdd->prepare($suppressionUsager);
-				$stmtRDV = $bdd->prepare($suppressionRDV);
-				$stmtMedecin = $bdd->prepare($suppressionMedecin);
-				
-				// Liaison des paramètres requête suppression RDV
-				$stmtRDV->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
+					$stmtMedecin->execute();
+					$stmtRDV->execute();
 
-				// idem pour le medecin
-				$stmtMedecin->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
-
-                // idem pour l'usager
-				$stmtUsager->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
-
-				// Exécution des requêtes
-                $stmtUsager->execute();
-				$stmtRDV->execute();
-				$stmtMedecin->execute();
-
-				// Stocker le message dans la variable de session
-				$_SESSION['message'] = "Le médecin a été supprimé avec succès";;
-
-				// Redirection vers la page d'affichage des médecins
-				header('Location: /PHP/affichageMedecin.php');
-				exit();
+					// Stocker le message dans la variable de session
+					$_SESSION['message'] = "Le médecin a été supprimé avec succès !";;
+					
+					// Redirection vers la page d'affichage des médecins
+					header('Location: /ProjetPHP2023/PHP/affichageMedecin.php');
+					exit();
+				}
+				// Sinon, le médecin est référent d'un usager, donc on ne peut pas le supprimer => affichage message erreur
+				catch(PDOException) {
+					$_SESSION['message'] = "Le médecin est un référent auprès d'autres patients, il ne peut pas être supprimé.";
+					// Redirection vers la page d'affichage des médecins
+					header('Location: /ProjetPHP2023/PHP/affichageMedecin.php');
+					exit();
+				}
 				
 			} catch(PDOException $e) {
 				echo "Erreur : " . $e->getMessage();

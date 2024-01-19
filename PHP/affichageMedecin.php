@@ -39,7 +39,7 @@
         echo '<td>' . $donnee['Civilite'] . '</td>';
         echo '<td><a href="modifierMedecin.php?Id_Medecin=' . $donnee['Id_Medecin'] . '&nom=' . $donnee['Nom'] . '&prenom=' . $donnee['Prenom'] 
         . '&civilite=' . $donnee['Civilite'] . '">Modifier</a> | 
-        <a href="supprimerMedecin.php?id=' . $donnee['Id_Medecin'] . '&nom=' . $donnee['Nom'] . '&prenom=' . $donnee['Prenom'] 
+        <a href="supprimerMedecin.php?Id_Medecin=' . $donnee['Id_Medecin'] . '&nom=' . $donnee['Nom'] . '&prenom=' . $donnee['Prenom'] 
         . '&civilite=' . $donnee['Civilite'] . '">Supprimer</a></td>';
         echo '</tr>';
         
