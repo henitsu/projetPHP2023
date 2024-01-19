@@ -38,7 +38,7 @@
 				$_SESSION['message'] = "Le RDV a été supprimé avec succès";
 				
 				// Redirection vers la page d'affichage des médecins
-				header('Location: /projetPHP2023/PHP/affichageRDV.php');
+				header('Location: /PHP/affichageRDV.php');
 				exit();
 
 			} catch(PDOException $e) {
