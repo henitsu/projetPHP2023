@@ -56,8 +56,22 @@
 						<br><br>
 
 						<label for="nom_usager">Nom usager :</label>
-						<input type="text" id="nom_usager" name="nom_usager" value="<?php echo $nom_usager; ?>" required><br>
-
+						<select name="nom_usager">
+							<?php 
+								$requete = "SELECT nom FROM usager ORDER BY nom";
+								$statement = $bdd->prepare($requete);
+								$statement->execute();
+								$usagers = $statement->fetchAll(PDO::FETCH_ASSOC);
+								foreach ($usagers as $usager) {
+									if (strcmp($nom_usager, $usager['nom']) == 0) {
+										echo "<option value='" . $usager['nom'] . "' selected>" . $usager['nom'] . "</option>";
+									}
+									else {
+										echo "<option value='" . $usager['nom'] . "'>" . $usager['nom'] . "</option>";
+									}
+								}
+							?>						
+						</select>
 						<label for="dateHeure">Date heure :</label>
 						<input type="datetime-local" id="dateHeure" name="dateHeure" value="<?php echo $rdv['DateHeureRDV']; ?>" required><br>
                         <br><br>
