@@ -1,5 +1,5 @@
 <?php
     session_destroy();
-    header('Location: /projetPHP2023/index.php');
+    header('Location: /index.php');
     exit();
 ?>
