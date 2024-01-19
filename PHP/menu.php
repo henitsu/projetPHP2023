@@ -23,12 +23,11 @@
         $stmt->execute();
         $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!$secretaire){
-            echo "Oh, vous n'êtes pas censé être ici !";
+            echo "<h2>Oh, vous n'êtes pas censé être ici !</h2>";
             header("refresh:0;url=/index.php");
         } else {
             $nom = $secretaire['Nom'];
             $prenom = $secretaire['Prenom'];
-
             
             // Création des variables de session
             $_SESSION['nom'] = $nom;
@@ -36,7 +35,7 @@
 
             echo 
             '<main>
-                    <h1>Bienvenue' . $prenom . " " . $nom . '!</h1>
+                    <h1>Bienvenue ' . $prenom . " " . $nom . '!</h1>
                     <div class="grid">
                         <div id="usagers" class="box">
                             <a href="/PHP/affichagePatient.php"><h2>Usagers</h2></a>
