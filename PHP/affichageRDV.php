@@ -24,7 +24,7 @@
         unset($_SESSION['message']);
     }
 
-    $reponseTri = $bdd->query("SELECT DISTINCT Nom FROM Medecin");
+    $reponseTri = $bdd->query("SELECT DISTINCT Nom FROM medecin");
     $medecins = $reponseTri->fetchAll();
     echo '<form action="affichageRDV.php" method="post">';
     echo '<label for="medecin">Trier par médecin : </label>';

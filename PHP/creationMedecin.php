@@ -13,7 +13,7 @@
 
         // Ajout du patient dans la BD
         try{
-            $sql = "INSERT INTO Medecin (Civilite, Nom, Prenom) VALUES (:Civilite, :Nom, :Prenom)";
+            $sql = "INSERT INTO medecin (Civilite, Nom, Prenom) VALUES (:Civilite, :Nom, :Prenom)";
             $stmt = $bdd->prepare($sql);
             $stmt->bindParam(':Civilite', $civilite, PDO::PARAM_STR);
             $stmt->bindParam(':Nom', $nom, PDO::PARAM_STR);
