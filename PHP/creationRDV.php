@@ -19,13 +19,14 @@
                 CREATE OR REPLACE TRIGGER rdv_avant_insert BEFORE INSERT ON rdv
                 FOR EACH ROW
                 BEGIN
-                    IF (SELECT COUNT(*) FROM rdv WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV = NEW.DateHeureRDV) > 0 THEN
+                    IF (SELECT COUNT(*) FROM rdv WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV = NEW.DateHeureRDV AND Id_Medecin = NEW.Id_Medecin) > 0 THEN
                         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ce médecin a déjà un rendez-vous à cette date et heure';
                     END IF;
-                    IF (SELECT COUNT(*) FROM rdv WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV + DureeConsultationMinutes < NEW.DateHeureRDV + NEW.DureeConsultationMinutes) > 0 THEN
-                        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Ce médécin sera encore en consultation à cette date et heure';
-                    END IF;
-                END";
+                    IF (SELECT COUNT(*) FROM rdv WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV + INTERVAL DureeConsultationMinutes MINUTE < NEW.DateHeureRDV + NEW.DureeConsultationMinutes 
+                    AND NEW.DateHeureRDV + INTERVAL New.DureeConsultationMinutes MINUTE > DateHeureRDV AND idusager != NEW.idusager) > 0 THEN
+                        SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Ce médecin sera encore en consultation à cette date et heure.';
+                    END IF;                    
+                END;";
             
             $bdd->exec($sql_trigger_rdv);
 
