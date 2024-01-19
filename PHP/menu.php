@@ -22,12 +22,18 @@
         $stmt->bindParam(':Login', $login, PDO::PARAM_STR);
         $stmt->execute();
         $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
-        $nom = $secretaire['Nom'];
-        $prenom = $secretaire['Prenom'];
+        if(!$secretaire){
+            echo "Oh, vous n'êtes pas censé être ici !";
+            header("refresh:3;url=/PHP/connexion.php");
+        } else {
+            $nom = $secretaire['Nom'];
+            $prenom = $secretaire['Prenom'];
 
-        // Création des variables de session
-        $_SESSION['nom'] = $nom;
-        $_SESSION['prenom'] = $prenom;
+            
+            // Création des variables de session
+            $_SESSION['nom'] = $nom;
+            $_SESSION['prenom'] = $prenom;
+        }
     ?>
     <main>
         <h1>Bienvenue <?php echo $prenom . " " . $nom; ?> !</h1>
