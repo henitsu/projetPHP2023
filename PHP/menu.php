@@ -24,7 +24,7 @@
         $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!$secretaire){
             echo "Oh, vous n'êtes pas censé être ici !";
-            header("refresh:2;url=/index.php");
+            header("refresh:0;url=/index.php");
         } else {
             $nom = $secretaire['Nom'];
             $prenom = $secretaire['Prenom'];
