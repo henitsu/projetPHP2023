@@ -77,7 +77,7 @@
         echo '<td>' . $donnee['DureeConsultationMinutes'] . '</td>';
         echo '<td><a href="modifierRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Modifier</a> | 
-        <a href="supprimerRDV.php?idusager=' . $donnee['idusager'] . '&Id_Medecin=' . $donnee['Id_Medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
+        <a href="supprimerRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Supprimer</a></td>';
         echo '</tr>';
         
