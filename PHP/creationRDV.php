@@ -29,7 +29,7 @@
             
             $bdd->exec($sql_trigger_rdv);
 
-            $sql = "INSERT INTO RDV (idusager, Id_Medecin, DateHeureRDV, DureeConsultationMinutes)
+            $sql = "INSERT INTO rdv (idusager, Id_Medecin, DateHeureRDV, DureeConsultationMinutes)
             VALUES(:idusager, :Id_Medecin, :DateHeureRDV, :DureeConsultationMinutes)";
 
             $stmt = $bdd->prepare($sql);

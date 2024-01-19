@@ -41,25 +41,25 @@
     if (isset($_POST['medecin'])) {
         if ($_POST['medecin'] != 'tous') {
             $reponse = $bdd->query(
-                "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
-                FROM RDV, Usager, Medecin
-                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin AND Medecin.Nom = '" . $_POST['medecin'] . "'
+                "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+                FROM rdv, usager, medecin
+                WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin AND medecin.Nom = '" . $_POST['medecin'] . "'
                 ORDER BY 2, 3");
             $donnees = $reponse->fetchAll();
         }
         else {
             $reponse = $bdd->query(
-                "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
-                FROM RDV, Usager, Medecin
-                WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
+                "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+                FROM rdv, usager, medecin
+                WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin");
             $donnees = $reponse->fetchAll();
         }
     } 
     else {
         $reponse = $bdd->query(
-            "SELECT DISTINCT Usager.nom nom_usager, Medecin.nom nom_medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes
-            FROM RDV, Usager, Medecin
-            WHERE RDV.idusager = Usager.idusager AND Medecin.Id_Medecin = RDV.Id_Medecin");
+            "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+            FROM rdv, usager, medecin
+            WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin");
         $donnees = $reponse->fetchAll();
     }
     
