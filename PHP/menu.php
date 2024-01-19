@@ -36,7 +36,7 @@
 
             echo 
             '<main>
-                    <h1>Bienvenue' <?php echo $prenom . " " . $nom; ?> '!</h1>
+                    <h1>Bienvenue' . $prenom . " " . $nom . '!</h1>
                     <div class="grid">
                         <div id="usagers" class="box">
                             <a href="/PHP/affichagePatient.php"><h2>Usagers</h2></a>
@@ -53,6 +53,6 @@
                     </div>
                 </main>
             </body>
-            </html>'
+            </html>';
         }
     ?>
