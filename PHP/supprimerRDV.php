@@ -9,6 +9,8 @@
     <body>
         <h1>Supprimer un RDV</h1>
 		<?php
+		
+			include 'header.php'; 
 			// Connexion à la base de données
 			require 'connexionBD.php';
 			

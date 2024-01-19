@@ -16,7 +16,6 @@
     <?php
 
     require 'connexionBD.php';
-
     // Vérifier s'il y a un message dans la variable de session
     if(isset($_SESSION['message'])){
         echo '<p>' . $_SESSION['message'] . '</p>';
