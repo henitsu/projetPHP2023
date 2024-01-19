@@ -50,6 +50,8 @@ INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`)
 INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('2', 'Mme', 'Lapin', 'Marie', 'MLapin');
 INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('3', 'Mlle', 'Coquelicot', 'Annie', 'ACoquelicot');
 INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('4', 'Mme', 'Tulipe', 'Suzanne', 'STulipe');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('5', 'M', 'Brioche', 'Bobby', 'BBrioche');
+INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('6', 'M', 'Bouvier', 'Christophe', 'CBouvier');
 
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('1', 'M', 'Dupont', 'Pierre');
 INSERT INTO `medecin` (`Id_Medecin`, `Civilite`, `Nom`, `Prenom`) VALUES ('2', 'Mme', 'Dupuis', 'Jeanne');

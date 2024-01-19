@@ -23,8 +23,8 @@
         $stmt->execute();
         $secretaire = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!$secretaire){
-            echo "<h2>Oh, vous n'êtes pas censé être ici !</h2>";
-            header("refresh:0;url=/index.php");
+            echo "<h2>Oh, il semble que vous ne soyez pas référencé en poste donné !</h2>";
+            header("refresh:3;url=/index.php");
         } else {
             $nom = $secretaire['Nom'];
             $prenom = $secretaire['Prenom'];
