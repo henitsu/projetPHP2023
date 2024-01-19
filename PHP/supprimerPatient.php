@@ -6,10 +6,11 @@
         <meta charset='utf-8'>
     </head>
     <body>
-        <h1>Supprimer un usager</h1>
 		<?php
 			require 'connexionBD.php';
 			include 'header.php';
+
+			echo '<h1>Supprimer un usager</h1>';
 			
 			try {
 				// Stockage de l'identifiant de l'usager
