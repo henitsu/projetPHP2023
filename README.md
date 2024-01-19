@@ -33,6 +33,7 @@ L'interface se décompose en 4 menus : **Usagers**, **Médecins**, **Consultatio
 - Affichent la liste des usagers, médecins ou consultations du cabinet médical sous forme de tableau.
 - Pour créer un nouvel usager, un nouveau médecin ou une nouvelle consultation, il faut cliquer sur le lien **Ajouter** présenté juste en-dessous du titre.
 - Pour modifier ou supprimer un usager, un médecin ou une consultation, il suffit de cliquer sur la colonne **Action** correspondante à ces opérations.
+- Pour le cas de la modification d'une consultation, on ne peut modifier que sa durée.
 
 ## Le menu **Statistiques**
 - Affiche un tableau à double entrées présentant le nombre de patients par tranche d'âge.
