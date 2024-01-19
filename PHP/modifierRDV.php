@@ -100,7 +100,7 @@
 				$ids = $etat->fetch(PDO::FETCH_ASSOC);
 				$id = $ids['Id_Medecin'];
 
-                $sql = "UPDATE rdv SET Id_Medecin = :Id_Medecin, dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
+                $sql = "UPDATE rdv SET dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
                 
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
