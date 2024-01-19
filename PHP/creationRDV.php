@@ -16,7 +16,7 @@
         try{
 
             $sql_trigger_rdv = "
-                CREATE OR REPLACE TRIGGER rdv_avant_insert BEFORE INSERT ON RDV
+                CREATE OR REPLACE TRIGGER rdv_avant_insert BEFORE INSERT ON rdv
                 FOR EACH ROW
                 BEGIN
                     IF (SELECT COUNT(*) FROM rdv WHERE Id_Medecin = NEW.Id_Medecin AND DateHeureRDV = NEW.DateHeureRDV) > 0 THEN
