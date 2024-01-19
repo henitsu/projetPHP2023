@@ -37,41 +37,11 @@
 				<div class="form">
 					<form action="modifierRDV.php?idusager=<?php echo $idusager;?>&Id_Medecin=<?php echo $Id_Medecin ?>" method="post">
 						<label for="nom_medecin">Nom médecin :</label>
-						<select name="nom_medecin">
-							<?php 
-								$requete = "SELECT nom FROM medecin ORDER BY nom";
-								$statement = $bdd->prepare($requete);
-								$statement->execute();
-								$medecins = $statement->fetchAll(PDO::FETCH_ASSOC);
-								foreach ($medecins as $medecin) {
-									if (strcmp($nom_medecin, $medecin['nom']) == 0) {
-										echo "<option value='" . $medecin['nom'] . "' selected>" . $medecin['nom'] . "</option>";
-									}
-									else {
-										echo "<option value='" . $medecin['nom'] . "'>" . $medecin['nom'] . "</option>";
-									}
-								}
-							?>						
-						</select>
+						<input type="text" id="nom_medecin" name="nom_medecin" value="<?php echo $nom_medecin; ?>" readonly="readonly"><br>
 						<br><br>
 
 						<label for="nom_usager">Nom usager :</label>
-						<select name="nom_usager">
-							<?php 
-								$requete = "SELECT nom FROM usager ORDER BY nom";
-								$statement = $bdd->prepare($requete);
-								$statement->execute();
-								$usagers = $statement->fetchAll(PDO::FETCH_ASSOC);
-								foreach ($usagers as $usager) {
-									if (strcmp($nom_usager, $usager['nom']) == 0) {
-										echo "<option value='" . $usager['nom'] . "' selected>" . $usager['nom'] . "</option>";
-									}
-									else {
-										echo "<option value='" . $usager['nom'] . "'>" . $usager['nom'] . "</option>";
-									}
-								}
-							?>						
-						</select>
+						<input type="text" id="nom_usager" name="nom_usager" value="<?php echo $nom_usager; ?>" readonly="readonly"><br>
 						<br><br>
 						
 						<label for="dateHeure">Date heure :</label>
@@ -100,7 +70,7 @@
 				$ids = $etat->fetch(PDO::FETCH_ASSOC);
 				$id = $ids['Id_Medecin'];
 
-                $sql = "UPDATE rdv SET dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
+                $sql = "UPDATE rdv SET dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager and Id_Medecin = :Id_Medecin and DateHeureRDV = :dateHeureRDV";
                 
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);
