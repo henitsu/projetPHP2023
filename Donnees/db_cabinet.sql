@@ -36,7 +36,7 @@ CREATE TABLE secretaire(
    PRIMARY KEY(Id_Secretaire)
 );
 
-CREATE TABLE RDV(
+CREATE TABLE rdv(
    idusager INT,
    Id_Medecin INT,
    DateHeureRDV DATETIME,
