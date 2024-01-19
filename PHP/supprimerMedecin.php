@@ -27,7 +27,7 @@
 				$suppressionMedecin = "DELETE FROM medecin WHERE Id_Medecin = :Id_Medecin";
 				
 				// Suppression RDV
-				$suppressionRDV = "DELETE FROM RDV WHERE Id_Medecin = :Id_Medecin";
+				$suppressionRDV = "DELETE FROM rdv WHERE Id_Medecin = :Id_Medecin";
 				
 				// Préparation des requêtes
 				$stmtUsager = $bdd->prepare($suppressionUsager);

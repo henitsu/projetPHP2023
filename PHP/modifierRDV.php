@@ -18,9 +18,9 @@
 				$duree = $_GET['duree'];
                 $dateHeure = $_GET["dateHeure"];
 
-				$sql = "SELECT RDV.idusager, RDV.Id_Medecin, RDV.DateHeureRDV, RDV.DureeConsultationMinutes 
-                FROM RDV, Usager, Medecin WHERE Usager.Nom = :nom_usager AND Medecin.Nom = :nom_medecin AND 
-                RDV.DateHeureRDV = :dateHeure AND RDV.DureeConsultationMinutes = :duree ORDER BY RDV.DateHeureRDV";
+				$sql = "SELECT rdv.idusager, rdv.Id_Medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes 
+                FROM rdv, usager, medecin WHERE usager.Nom = :nom_usager AND medecin.Nom = :nom_medecin AND 
+                rdv.DateHeureRDV = :dateHeure AND rdv.DureeConsultationMinutes = :duree ORDER BY rdv.DateHeureRDV";
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':nom_usager', $nom_usager, PDO::PARAM_STR);
 				$stmt->bindParam(':nom_medecin', $nom_medecin, PDO::PARAM_STR);
@@ -39,7 +39,7 @@
 						<label for="nom_medecin">Nom médecin :</label>
 						<select name="nom_medecin">
 							<?php 
-								$requete = "SELECT nom FROM Medecin ORDER BY nom";
+								$requete = "SELECT nom FROM medecin ORDER BY nom";
 								$statement = $bdd->prepare($requete);
 								$statement->execute();
 								$medecins = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -77,14 +77,14 @@
 				$Id_Medecin = $_GET['Id_Medecin'];
 				$nom_medecin = $_POST['nom_medecin'];
 
-				$req_id_medecin = "SELECT Id_Medecin FROM Medecin WHERE Nom = :nom_medecin";
+				$req_id_medecin = "SELECT Id_Medecin FROM medecin WHERE Nom = :nom_medecin";
 				$etat = $bdd->prepare($req_id_medecin);
 				$etat->bindParam(':nom_medecin', $nom_medecin, PDO::PARAM_STR);
 				$etat->execute();
 				$ids = $etat->fetch(PDO::FETCH_ASSOC);
 				$id = $ids['Id_Medecin'];
 
-                $sql = "UPDATE RDV SET Id_Medecin = :Id_Medecin, dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
+                $sql = "UPDATE rdv SET Id_Medecin = :Id_Medecin, dateHeureRDV = :dateHeureRDV, dureeConsultationMinutes = :dureeConsultationMinutes WHERE idusager = :idusager";
                 
 				$stmt = $bdd->prepare($sql);
 				$stmt->bindParam(':idusager', $idusager, PDO::PARAM_STR);

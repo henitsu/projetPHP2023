@@ -19,7 +19,7 @@
 				$suppressionUsager = "DELETE FROM usager WHERE idusager = :idusager";
 				
 				// Suppression RDV
-				$suppressionRDV = "DELETE FROM RDV WHERE idusager = :idusager";
+				$suppressionRDV = "DELETE FROM rdv WHERE idusager = :idusager";
 				
 				// Préparation des requêtes
 				$stmtRDV = $bdd->prepare($suppressionRDV);

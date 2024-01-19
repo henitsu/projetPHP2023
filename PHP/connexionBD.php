@@ -1,8 +1,9 @@
 <?php
     // Connexion à la base de données
-    $servname = "localhost";
-    $dbname = "patientele";
-    $user = "etu1";
+    // $servname = "localhost";
+    $servname = "phpmyadmin.alwaysdata.com"
+    $dbname = "patientele_cb";
+    $user = "etu";
     $pass = "iutinfo";
      
     try {

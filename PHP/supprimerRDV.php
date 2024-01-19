@@ -19,7 +19,7 @@
 				
 				// Utilisation de la clause WHERE avec une requête préparée
 				// Suppression RDV
-				$suppressionRDV = "DELETE FROM RDV WHERE idusager = :idusager AND Id_Medecin = :Id_Medecin AND
+				$suppressionRDV = "DELETE FROM rdv WHERE idusager = :idusager AND Id_Medecin = :Id_Medecin AND
                 dateHeureRDV = :DateHeureRDV";
 				
 				// Préparation des requêtes
