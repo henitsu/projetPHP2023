@@ -72,6 +72,8 @@
 								}
 							?>						
 						</select>
+						<br><br>
+						
 						<label for="dateHeure">Date heure :</label>
 						<input type="datetime-local" id="dateHeure" name="dateHeure" value="<?php echo $rdv['DateHeureRDV']; ?>" required><br>
                         <br><br>

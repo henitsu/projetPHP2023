@@ -83,7 +83,7 @@
             </tr>
         </table></div><br><br>";
 
-        $reponseNbHeuresParMedecin = $bdd->query("SELECT SUM(DureeConsultationMinutes)/60, medecin.Nom FROM rdv, medecin WHERE medecin.Id_Medecin = rdv.Id_Medecin GROUP BY rdv.Id_Medecin");
+        $reponseNbHeuresParMedecin = $bdd->query("SELECT SUM(DureeConsultationMinutes)/60, medecin.Nom FROM rdv, medecin WHERE medecin.Id_Medecin = rdv.Id_Medecin GROUP BY medecin.Id_Medecin");
         $NbHeuresConsultation = $reponseNbHeuresParMedecin->fetchAll();
         foreach($NbHeuresConsultation as $NbHeures){
             echo "<div class='stats'>Le médecin " . $NbHeures[1] . " a réalisé " . round($NbHeures[0],2) . " heures de consultation <br> </div>";
