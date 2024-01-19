@@ -49,6 +49,13 @@
                 $stmtUsager->execute();
 				$stmtRDV->execute();
 				$stmtMedecin->execute();
+
+				// Stocker le message dans la variable de session
+				$_SESSION['message'] = "Le médecin a été supprimé avec succès";;
+
+				// Redirection vers la page d'affichage des médecins
+				header('Location: /PHP/affichageMedecin.php');
+				exit();
 				
 				echo $prenom ." " . $nom . " supprimé avec succès";
 			} catch(PDOException $e) {
