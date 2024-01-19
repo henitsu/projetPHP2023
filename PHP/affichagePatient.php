@@ -37,7 +37,7 @@
         echo '<td>' . $donnee['Nom'] . '</td>';
         echo '<td>' . $donnee['Prenom'] . '</td>';
         echo '<td>' . $donnee['Adresse'] . '</td>';
-        echo '<td>' . date('d/m/Y', strtotime($donnee['DateNaissance'])) . '</td>';
+        echo '<td>' . date('d/m/Y', $donnee['DateNaissance']) . '</td>';
         echo '<td>' . $donnee['LieuNaissance'] . '</td>';
         echo '<td>' . $donnee['NumSecu'] . '</td>';
         echo '<td><a href="modifierPatient.php?id=' . $donnee['idusager'] . '&nom=' . $donnee['Nom'] . '&prenom=' . $donnee['Prenom'] 
