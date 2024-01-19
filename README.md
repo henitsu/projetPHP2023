@@ -8,6 +8,11 @@ L'objectif est de créer une application de gestion d'un cabinet médical permet
 Comme l'application doit être accessible aux neophytes, il n'y a aucun pré-requis technique à posséder.
 
 ## L'application web
+### Configuration
+Il faut dézipper le projet dans un dossier **htdocs** de **xampp**.
+Dans le dossier **Donnees** se trouve le fichier **db_patientele.sql** : la base de données du projet. Il faut l'exécuter dans **phpMyAdmin**.
+
+### Prise en main
 L'application s'ouvre sur la page d'authentification **index.php**. Pour pouvoir y accéder, il faut rentrer un identifiant parmi la liste ci-dessous :
 
   - TJonquille
