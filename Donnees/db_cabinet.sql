@@ -1,9 +1,9 @@
-CREATE OR REPLACE USER 'etu1'@'localhost' IDENTIFIED BY 'iutinfo';
-DROP DATABASE IF EXISTS patientele;
-create database patientele;
-grant all privileges on patientele.* TO 'etu1'@'localhost' identified by 'iutinfo';
+CREATE OR REPLACE USER 'etu'@'localhost' IDENTIFIED BY 'iutinfo';
+DROP DATABASE IF EXISTS patientele_db;
+create database patientele_db;
+grant all privileges on patientele_db.* TO 'etu'@'localhost' identified by 'iutinfo';
 flush privileges;
-USE patientele;
+USE patientele_db;
 
 CREATE TABLE Medecin(
    Id_Medecin INT AUTO_INCREMENT,
