@@ -41,14 +41,14 @@
 					$_SESSION['message'] = "Le médecin a été supprimé avec succès !";;
 					
 					// Redirection vers la page d'affichage des médecins
-					header('Location: /ProjetPHP2023/PHP/affichageMedecin.php');
+					header('Location: /PHP/affichageMedecin.php');
 					exit();
 				}
 				// Sinon, le médecin est référent d'un usager, donc on ne peut pas le supprimer => affichage message erreur
 				catch(PDOException) {
 					$_SESSION['message'] = "Le médecin est un référent auprès d'autres patients, il ne peut pas être supprimé.";
 					// Redirection vers la page d'affichage des médecins
-					header('Location: /ProjetPHP2023/PHP/affichageMedecin.php');
+					header('Location: /PHP/affichageMedecin.php');
 					exit();
 				}
 				
