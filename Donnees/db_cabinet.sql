@@ -5,7 +5,7 @@ grant all privileges on patientele_db.* TO 'etu'@'localhost' identified by 'iuti
 flush privileges;
 USE patientele_db;
 
-CREATE TABLE Medecin(
+CREATE TABLE medecin(
    Id_Medecin INT AUTO_INCREMENT,
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
@@ -13,7 +13,7 @@ CREATE TABLE Medecin(
    PRIMARY KEY(Id_Medecin)
 );
 
-CREATE TABLE Usager(
+CREATE TABLE usager(
    idusager INT AUTO_INCREMENT,
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
@@ -27,7 +27,7 @@ CREATE TABLE Usager(
    FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
 );
 
-CREATE TABLE Secretaire(
+CREATE TABLE secretaire(
    Id_Secretaire INT AUTO_INCREMENT,
    Civilite VARCHAR(50),
    Nom VARCHAR(50),
