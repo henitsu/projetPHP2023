@@ -2,7 +2,7 @@
     // Connexion à la base de données
     // $servname = "localhost";
     $servname = "phpmyadmin.alwaysdata.com"
-    $dbname = "patientele_cb";
+    $dbname = "patientele_db";
     $user = "etu";
     $pass = "iutinfo";
      
