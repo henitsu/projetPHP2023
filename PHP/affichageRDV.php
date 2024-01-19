@@ -73,7 +73,7 @@
         echo '<tr>';
         echo '<td>' . $donnee['nom_medecin'] . '</td>';
         echo '<td>' . $donnee['nom_usager'] . '</td>';
-        echo '<td>' . date('d/m/Y - H:i', strtotime($donnee['DateHeureRDV'])) . '</td>';
+        echo '<td>' . date('d/m/Y - H:i', $donnee['DateHeureRDV']) . '</td>';
         echo '<td>' . $donnee['DureeConsultationMinutes'] . '</td>';
         echo '<td><a href="modifierRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Modifier</a> | 

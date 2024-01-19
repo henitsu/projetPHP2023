@@ -13,7 +13,7 @@
         $nom = $patient->getNom();
         $prenom = $patient->getPrenom();
         $adresse = $patient->getAdresse();
-        $dateNaissance = date('d/m/Y', strtotime($patient->getDateNaissance()));
+        $dateNaissance = date('d/m/Y', $patient->getDateNaissance());
         $lieuNaissance = $patient->getLieuNaissance();
         $numSecu = $patient->getNumSecu();
         $idMedecin = $patient->getIdMedecin();
