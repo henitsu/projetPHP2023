@@ -20,7 +20,7 @@
 
         // Ajout du patient dans la BD
         try{
-            $sql = "INSERT INTO Usager
+            $sql = "INSERT INTO usager
                 (Civilite, Nom, Prenom, Adresse, DateNaissance, LieuNaissance, NumSecu, Id_Medecin)
                 VALUES(:Civilite, :Nom, :Prenom, :Adresse, :DateNaissance, :LieuNaissance, :NumSecu, :Id_Medecin)";
             $stmt = $bdd->prepare($sql);
