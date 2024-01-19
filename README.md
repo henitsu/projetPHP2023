@@ -27,10 +27,10 @@ L'application s'ouvre sur la page d'authentification **index.php**. Pour pouvoir
 
 Il faut saisir n'importe quel mot de passe.
 
-Elle se décompose en 4 menus : **Usagers**, **Médecins**, **Consultations** et **Statistiques**.
+L'interface se décompose en 4 menus : **Usagers**, **Médecins**, **Consultations** et **Statistiques**.
 
 ## Les menus **Usagers**, **Médecins** et **Consultations**
-- Affiche la liste des usagers, médecins ou consultations du cabinet médical sous forme de tableau.
+- Affichent la liste des usagers, médecins ou consultations du cabinet médical sous forme de tableau.
 - Pour créer un nouvel usager, un nouveau médecin ou une nouvelle consultation, il faut cliquer sur le lien **Ajouter** présenté juste en-dessous du titre.
 - Pour modifier ou supprimer un usager, un médecin ou une consultation, il suffit de cliquer sur la colonne **Action** correspondante à ces opérations.
 
