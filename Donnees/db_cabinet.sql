@@ -24,7 +24,7 @@ CREATE TABLE usager(
    NumSecu VARCHAR(50),
    Id_Medecin INT NOT NULL,
    PRIMARY KEY(idusager),
-   FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
+   FOREIGN KEY(Id_Medecin) REFERENCES medecin(Id_Medecin)
 );
 
 CREATE TABLE secretaire(
@@ -42,8 +42,8 @@ CREATE TABLE rdv(
    DateHeureRDV DATETIME,
    DureeConsultationMinutes INT,
    PRIMARY KEY(idusager, Id_Medecin, DateHeureRDV),
-   FOREIGN KEY(idusager) REFERENCES Usager(idusager),
-   FOREIGN KEY(Id_Medecin) REFERENCES Medecin(Id_Medecin)
+   FOREIGN KEY(idusager) REFERENCES usager(idusager),
+   FOREIGN KEY(Id_Medecin) REFERENCES medecin(Id_Medecin)
 );
 
 INSERT INTO `secretaire` (`Id_Secretaire`, `Civilite`, `Nom`, `Prenom`, `Login`) VALUES ('1', 'Mlle', 'Jonquille', 'Tamara', 'TJonquille');
