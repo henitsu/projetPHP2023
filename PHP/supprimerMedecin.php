@@ -21,7 +21,7 @@
 				
 				// Utilisation de la clause WHERE avec une requête préparée
 
-				// Suppression usager ????
+				// On attribut null à l'Id_Medecin (médecin référent) de l'usager
 				$suppressionUsager = "UPDATE usager SET Id_Medecin = null WHERE Id_Medecin = :Id_Medecin";
 
 				// Suppression medecin
@@ -41,11 +41,10 @@
 				// idem pour le medecin
 				$stmtMedecin->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
 
-                // idem pour le medecin
+                // idem pour l'usager
 				$stmtUsager->bindParam(':Id_Medecin', $id, PDO::PARAM_STR);
 
 				// Exécution des requêtes
-				
                 $stmtUsager->execute();
 				$stmtRDV->execute();
 				$stmtMedecin->execute();
@@ -57,7 +56,6 @@
 				header('Location: /PHP/affichageMedecin.php');
 				exit();
 				
-				echo $prenom ." " . $nom . " supprimé avec succès";
 			} catch(PDOException $e) {
 				echo "Erreur : " . $e->getMessage();
 			}
