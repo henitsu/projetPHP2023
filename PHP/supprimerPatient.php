@@ -9,10 +9,13 @@
         <h1>Supprimer un usager</h1>
 		<?php
 			require 'connexionBD.php';
+			include 'header.php';
 			
 			try {
 				// Stockage de l'identifiant de l'usager
 				$idusager = $_GET['id'];
+				$nom = $_GET['nom'];
+				$prenom = $_GET['prenom'];
 
 				// Utilisation de la clause WHERE avec une requête préparée
 				// Suppression usager
@@ -35,7 +38,7 @@
 				$stmtRDV->execute();
 				$stmtUsager->execute();
 				
-				echo $prenom ." " . $nom . " supprimé avec succès";
+				echo $prenom . ' ' . $nom ." supprimé avec succès";
 			} catch(PDOException $e) {
 				echo "Erreur : " . $e->getMessage();
 			}
