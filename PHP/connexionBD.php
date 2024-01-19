@@ -3,7 +3,7 @@
     // $servname = "localhost";
     $servname = "phpmyadmin.alwaysdata.com";
     $dbname = "patientele_db";
-    $user = "etu";
+    $user = "344078_etu";
     $pass = "iutinfo";
      
     try {
