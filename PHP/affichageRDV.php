@@ -41,7 +41,7 @@
     if (isset($_POST['medecin'])) {
         if ($_POST['medecin'] != 'tous') {
             $reponse = $bdd->query(
-                "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+                "SELECT DISTINCT usager.idusager idusager, medecin.Id_Medecin Id_Medecin, usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
                 FROM rdv, usager, medecin
                 WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin AND medecin.Nom = '" . $_POST['medecin'] . "'
                 ORDER BY 2, 3");
@@ -49,7 +49,7 @@
         }
         else {
             $reponse = $bdd->query(
-                "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+                "SELECT DISTINCT usager.idusager idusager, medecin.Id_Medecin Id_Medecin, usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
                 FROM rdv, usager, medecin
                 WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin");
             $donnees = $reponse->fetchAll();
@@ -57,7 +57,7 @@
     } 
     else {
         $reponse = $bdd->query(
-            "SELECT DISTINCT usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
+            "SELECT DISTINCT usager.idusager idusager, medecin.Id_Medecin Id_Medecin, usager.nom nom_usager, medecin.nom nom_medecin, rdv.DateHeureRDV, rdv.DureeConsultationMinutes
             FROM rdv, usager, medecin
             WHERE rdv.idusager = usager.idusager AND medecin.Id_medecin = rdv.Id_medecin");
         $donnees = $reponse->fetchAll();
@@ -75,9 +75,9 @@
         echo '<td>' . $donnee['nom_usager'] . '</td>';
         echo '<td>' . date('d/m/Y - H:i', strtotime($donnee['DateHeureRDV'])) . '</td>';
         echo '<td>' . $donnee['DureeConsultationMinutes'] . '</td>';
-        echo '<td><a href="modifierRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
+        echo '<td><a href="modifierRDV.php?idusager=' . $donnee['idusager'] . '&Id_Medecin=' . $donnee['Id_Medecin'] . '&nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Modifier</a> | 
-        <a href="supprimerRDV.php?nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
+        <a href="supprimerRDV.php?idusager=' . $donnee['idusager'] . '&Id_Medecin=' . $donnee['Id_Medecin'] . '&nom_usager=' . $donnee['nom_usager'] . '&nom_medecin=' . $donnee['nom_medecin'] . '&dateHeure=' . $donnee['DateHeureRDV'] 
         . '&duree=' . $donnee['DureeConsultationMinutes'] . '">Supprimer</a></td>';
         echo '</tr>';
         

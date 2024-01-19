@@ -35,10 +35,10 @@
 				$stmt->execute();
 
 				// Stocker le message dans la variable de session
-				$_SESSION['message'] = "Le RDV a été supprimé avec succès";;
-
+				$_SESSION['message'] = "Le RDV a été supprimé avec succès";
+				
 				// Redirection vers la page d'affichage des médecins
-				header('Location: /PHP/affichageRDV.php');
+				header('Location: /projetPHP2023/PHP/affichageRDV.php');
 				exit();
 
 			} catch(PDOException $e) {
